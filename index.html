@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="hi">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>HimalayanGo - Hotels, Travel & Bills</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <div class="logo">🏔️ Himalayan<span>Go</span></div>
+  <nav><a href="#hotels">Hotels</a><a href="#services">Bills & Recharge</a><a href="#offers">Offers</a><button id="loginBtn">Login</button></nav>
+</header>
+<main>
+<section class="hero">
+  <div><p class="eyebrow">TRAVEL • STAY • PAY</p><h1>Book your trip.<br><span>Pay your bills.</span></h1>
+  <p class="sub">Hotels, travel services and everyday bill payments in one place.</p></div>
+  <div class="searchbox">
+    <div class="tabs"><button class="active" data-tab="hotel">🏨 Hotels</button><button data-tab="flight">✈️ Flights</button><button data-tab="bus">🚌 Bus</button></div>
+    <div class="fields"><input id="destination" placeholder="Where are you going?" value="Shimla"><input type="date" id="date"><input type="number" id="guests" min="1" value="2" placeholder="Guests"></div>
+    <button class="primary" id="searchBtn">Search availability</button>
+  </div>
+</section>
+
+<section id="hotels" class="section"><div class="section-head"><div><p class="eyebrow">STAY</p><h2>Popular stays</h2></div><button class="link" onclick="alert('Connect a hotel API/affiliate account to load live inventory.')">View all →</button></div>
+<div class="cards" id="hotelCards"></div></section>
+
+<section id="services" class="section"><p class="eyebrow">PAYMENTS</p><h2>Recharge & bill payments</h2>
+<div class="service-grid">
+<div class="service" onclick="openPay('Mobile Recharge')">📱<b>Mobile Recharge</b><small>Prepaid & postpaid</small></div>
+<div class="service" onclick="openPay('Electricity Bill')">💡<b>Electricity</b><small>Pay your power bill</small></div>
+<div class="service" onclick="openPay('DTH Recharge')">📺<b>DTH</b><small>Recharge instantly</small></div>
+<div class="service" onclick="openPay('Broadband')">🌐<b>Broadband</b><small>Pay internet bills</small></div>
+</div></section>
+
+<section id="offers" class="offer"><div><p class="eyebrow">COMING SOON</p><h2>Offers, coupons & referral rewards</h2><p>Admin-controlled offers can be added once your payment and booking partners are connected.</p></div><div class="badge">💰 EARN<br>WITH<br>REFERRALS</div></section>
+</main>
+
+<footer><div class="logo">🏔️ Himalayan<span>Go</span></div><p>Travel & payments platform demo • Replace branding before launch</p></footer>
+
+<div class="modal" id="modal"><div class="dialog"><button class="close" onclick="closePay()">×</button><h2 id="modalTitle">Payment</h2><input placeholder="Enter mobile / consumer number"><input placeholder="Amount ₹" type="number"><button class="primary" onclick="demoPay()">Continue to payment</button><small>Demo only. A licensed payment/bill-pay API is required for real transactions.</small></div></div>
+<script src="script.js"></script>
+</body></html>
