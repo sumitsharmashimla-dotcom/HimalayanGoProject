@@ -21,9 +21,87 @@
   </div>
 </section>
 
-<section id="hotels" class="section"><div class="section-head"><div><p class="eyebrow">STAY</p><h2>Popular stays</h2></div><button class="link" onclick="alert('Connect a hotel API/affiliate account to load live inventory.')">View all →</button></div>
-<div class="cards" id="hotelCards"></div></section>
+<section id="hotels" class="section">
+    <div class="section-head">
+        <p class="eyebrow">STAY</p>
+        <h2>Popular Stays (Shoghi to Kinnaur)</h2>
+    </div>
+    
+    <!-- Search Bar -->
+    <div style="text-align: center; margin-bottom: 20px;">
+        <input type="text" id="searchInput" placeholder="Search hotel by name or location..." onkeyup="searchHotel()" style="padding: 10px; width: 80%; max-width: 400px; border-radius: 5px; border: 1px solid #ccc;">
+    </div>
 
+    <!-- Hotels Grid -->
+    <div class="cards" id="hotelGrid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
+
+        <!-- 1. Shoghi -->
+        <div class="hotel-card" data-name="park woods shoghi" style="background:#fff; padding:15px; border-radius:8px; box-shadow:0 2px 5px rgba(0,0,0,0.1);">
+            <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=500&q=80" alt="Park Woods Shoghi" style="width:100%; height:150px; object-fit:cover; border-radius:5px;">
+            <h3>Park Woods Shoghi</h3>
+            <p><b>Location:</b> Shoghi (~13 km)</p>
+            <p><b>Price:</b> ₹4,000 - ₹6,000</p>
+            <p><b>Review:</b> ⭐ 4.5/5</p>
+            <a href="https://www.booking.com/hotel/in/park-woods-shoghi.html" target="_blank" style="display:block; background:#e74c3c; color:#fff; text-align:center; padding:8px; border-radius:4px; text-decoration:none; margin-top:10px;">Book Now</a>
+        </div>
+
+        <!-- 2. Shimla Main -->
+        <div class="hotel-card" data-name="hotel combermere shimla" style="background:#fff; padding:15px; border-radius:8px; box-shadow:0 2px 5px rgba(0,0,0,0.1);">
+            <img src="https://images.unsplash.com/photo-1582719508461-905c673771fd?auto=format&fit=crop&w=500&q=80" alt="Hotel Combermere" style="width:100%; height:150px; object-fit:cover; border-radius:5px;">
+            <h3>Hotel Combermere</h3>
+            <p><b>Location:</b> Mall Road, Shimla</p>
+            <p><b>Price:</b> ₹6,500 - ₹10,000</p>
+            <p><b>Review:</b> ⭐ 4.6/5</p>
+            <a href="https://www.booking.com/hotel/in/combermere.html" target="_blank" style="display:block; background:#e74c3c; color:#fff; text-align:center; padding:8px; border-radius:4px; text-decoration:none; margin-top:10px;">Book Now</a>
+        </div>
+
+        <!-- 3. Kufri -->
+        <div class="hotel-card" data-name="kufri pacific resort" style="background:#fff; padding:15px; border-radius:8px; box-shadow:0 2px 5px rgba(0,0,0,0.1);">
+            <img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=500&q=80" alt="Kufri Pacific" style="width:100%; height:150px; object-fit:cover; border-radius:5px;">
+            <h3>Kufri Pacific Resort</h3>
+            <p><b>Location:</b> Kufri (~16 km)</p>
+            <p><b>Price:</b> ₹4,500 - ₹7,000</p>
+            <p><b>Review:</b> ⭐ 4.3/5</p>
+            <a href="https://www.booking.com/hotel/in/kufri-pacific-resort.html" target="_blank" style="display:block; background:#e74c3c; color:#fff; text-align:center; padding:8px; border-radius:4px; text-decoration:none; margin-top:10px;">Book Now</a>
+        </div>
+
+        <!-- 4. Narkanda -->
+        <div class="hotel-card" data-name="hatu peak view narkanda" style="background:#fff; padding:15px; border-radius:8px; box-shadow:0 2px 5px rgba(0,0,0,0.1);">
+            <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=500&q=80" alt="Hatu Peak View" style="width:100%; height:150px; object-fit:cover; border-radius:5px;">
+            <h3>Hatu Peak View Hotel</h3>
+            <p><b>Location:</b> Narkanda (~60 km)</p>
+            <p><b>Price:</b> ₹3,000 - ₹4,500</p>
+            <p><b>Review:</b> ⭐ 4.4/5</p>
+            <a href="https://www.booking.com/hotel/in/hatu-peak-narkanda.html" target="_blank" style="display:block; background:#e74c3c; color:#fff; text-align:center; padding:8px; border-radius:4px; text-decoration:none; margin-top:10px;">Book Now</a>
+        </div>
+
+        <!-- 5. Kalpa (Kinnaur) -->
+        <div class="hotel-card" data-name="the monk kalpa kinnaur" style="background:#fff; padding:15px; border-radius:8px; box-shadow:0 2px 5px rgba(0,0,0,0.1);">
+            <img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=500&q=80" alt="The Monk Kalpa" style="width:100%; height:150px; object-fit:cover; border-radius:5px;">
+            <h3>The Monk Kalpa</h3>
+            <p><b>Location:</b> Kalpa, Kinnaur (~225 km)</p>
+            <p><b>Price:</b> ₹3,000 - ₹5,500</p>
+            <p><b>Review:</b> ⭐ 4.8/5</p>
+            <a href="https://www.booking.com/hotel/in/the-monk-kalpa.html" target="_blank" style="display:block; background:#e74c3c; color:#fff; text-align:center; padding:8px; border-radius:4px; text-decoration:none; margin-top:10px;">Book Now</a>
+        </div>
+
+    </div>
+</section>
+
+<script>
+    function searchHotel() {
+        let input = document.getElementById('searchInput').value.toLowerCase();
+        let cards = document.getElementsByClassName('hotel-card');
+        for (let i = 0; i < cards.length; i++) {
+            let name = cards[i].getAttribute('data-name');
+            if (name.includes(input)) {
+                cards[i].style.display = "";
+            } else {
+                cards[i].style.display = "none";
+            }
+        }
+    }
+</script>
 <section id="services" class="section"><p class="eyebrow">PAYMENTS</p><h2>Recharge & bill payments</h2>
 <div class="service-grid">
 <div class="service" onclick="openPay('Mobile Recharge')">📱<b>Mobile Recharge</b><small>Prepaid & postpaid</small></div>
