@@ -3,121 +3,93 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HimalayanGo - Explore Himachal & Services</title>
-    <style>header {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 15px 20px;
-    background: #ffffff;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-}
-.logo {
-    font-size: 22px;
-    font-weight: bold;
-    color: #0071c2;
-    margin-bottom: 10px;
-}
-nav {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 10px;
-}
-nav a {
-    margin-left: 0;
-    font-size: 14px;
-    padding: 5px 10px;
-    background: #f0f4f8;
-    border-radius: 4px;
-}
+    <title>HimalayanGo - Explore & Book</title>
+    <style>
         * {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
             font-family: Arial, sans-serif;
-            scroll-behavior: smooth;
         }
         body {
             background-color: #f4f6f9;
             color: #333;
         }
+        /* Header Styling */
         header {
+            background: #ffffff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            padding: 15px 20px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 20px 50px;
-            background: #ffffff;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
             position: sticky;
             top: 0;
-            z-index: 1000;
+            z-index: 100;
         }
         .logo {
-            font-size: 24px;
+            font-size: 22px;
             font-weight: bold;
             color: #0071c2;
+            text-decoration: none;
         }
         nav a {
             margin-left: 20px;
             text-decoration: none;
             color: #555;
-            font-weight: 600;
+            font-size: 15px;
+            font-weight: 500;
         }
         nav a:hover {
             color: #0071c2;
         }
+        /* Hero & Search Section */
         .hero {
-            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?auto=format&fit=crop&w=1200&q=80') no-repeat center center/cover;
-            height: 450px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
             text-align: center;
+            padding: 40px 20px 20px 20px;
+            background: linear-gradient(135deg, #0071c2, #004d80);
             color: white;
-            padding: 0 20px;
         }
         .hero h1 {
-            font-size: 42px;
-            margin-bottom: 10px;
+            font-size: 28px;
+            margin-bottom: 15px;
         }
-        .hero p {
-            font-size: 18px;
-            margin-bottom: 20px;
+        .search-box {
+            width: 100%;
+            max-width: 500px;
+            padding: 14px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 30px;
+            outline: none;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
         }
+        /* Main Container for Cards */
         .container {
             max-width: 1200px;
-            margin: 40px auto;
+            margin: 30px auto;
             padding: 0 20px;
-        }
-        .section-title {
-            font-size: 26px;
-            margin-bottom: 20px;
-            color: #222;
-            border-left: 5px solid #0071c2;
-            padding-left: 10px;
         }
         .grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
-            margin-bottom: 50px;
+            gap: 25px;
         }
         .card {
             background: #fff;
-            border-radius: 8px;
+            border-radius: 12px;
             overflow: hidden;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.06);
             display: flex;
             flex-direction: column;
+            transition: transform 0.2s ease;
+        }
+        .card:hover {
+            transform: translateY(-5px);
         }
         .card img {
             width: 100%;
-            height: 200px;
+            height: 180px;
             object-fit: cover;
         }
         .card-content {
@@ -129,23 +101,27 @@ nav a {
         .card-title {
             font-size: 18px;
             font-weight: bold;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
+            color: #222;
         }
         .card-desc {
-            font-size: 14px;
+            font-size: 13px;
             color: #666;
             margin-bottom: 20px;
             flex-grow: 1;
+            line-height: 1.4;
         }
         .btn {
-            display: inline-block;
-            text-align: center;
             background: #0071c2;
-            color: #fff;
-            padding: 10px 15px;
-            border-radius: 4px;
-            text-decoration: none;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
             font-weight: bold;
+            text-align: center;
+            text-decoration: none;
+            width: 100%;
         }
         .btn:hover {
             background: #005999;
@@ -154,315 +130,172 @@ nav a {
 </head>
 <body>
 
-    <!-- Header & Navigation -->
+    <!-- Header -->
     <header>
-        <div class="logo">🏔️ HimalayanGo</div>
+        <a href="#" class="logo">🏔️ HimalayanGo</a>
         <nav>
-            <a href="#hotels">Hotels</a>
-            <a href="#recharge">Bills & Recharge</a>
-            <a href="#shopping">Shopping</a>
-            <a href="#business">Local Business</a>
+            <a href="#" onclick="filterByCategory('all')">All</a>
+            <a href="#" onclick="filterByCategory('hotel')">Hotels</a>
+            <a href="#" onclick="filterByCategory('shopping')">Shopping</a>
+            <a href="#" onclick="filterByCategory('business')">Cafes</a>
         </nav>
     </header>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <h1>Discover the Magic of Himachal</h1>
-        <p>Your one-stop destination for stays, utility bills, shopping, and local businesses.</p>
-    </section>
+    <!-- Hero Search Area -->
+    <div class="hero">
+        <h1>Your Direct Gateway to Himachal</h1>
+        <input type="text" id="searchInput" class="search-box" placeholder="Search hotels, trekking gear, cafes..." onkeyup="filterItems()">
+    </div>
 
-    <!-- 1. Hotels Section -->
-    <div class="container" id="hotels">
-        <h2 class="section-title">Featured Hotels & Stays</h2>
-        <div class="grid">
-            <div class="card">
-                <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=500&q=80" alt="Hotel">
-                <div class="card-content">
-                    <div class="card-title">Snow Peak View Resort, Shimla</div>
-                    <div class="card-desc">Experience luxury amidst pine forests with panoramic mountain views.</div>
-                    <a href="#" class="btn">Book Now</a>
-                </div>
-            </div>
-            <div class="card">
-                <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=500&q=80" alt="Cottage">
-                <div class="card-content">
-                    <div class="card-title">Pine Valley Wooden Cottage</div>
-                    <div class="card-desc">Cozy traditional wooden stay offering authentic Himachali hospitality.</div>
-                    <a href="#" class="btn">Book Now</a>
-                </div>
-            </div>
+    <!-- Dynamic Items Section -->
+    <div class="container">
+        <div id="itemsContainer" class="grid">
+            <!-- JavaScript will populate items here dynamically -->
         </div>
     </div>
 
-    <!-- 2. Bills & Recharge Section -->
-    <div class="container" id="recharge">
-        <h2 class="section-title">Bills & Quick Recharge</h2>
-        <div class="grid">
-            <div class="card">
-                <div class="card-content">
-                    <div class="card-title">Mobile & DTH Recharge</div>
-                    <div class="card-desc">Instant online recharges for Airtel, Jio, VI, and DTH connections.</div>
-                    <a href="#" class="btn">Recharge Now</a>
-                </div>
-            </div>
-            <div class="card">
-                <div class="card-content">
-                    <div class="card-title">Utility Bill Payments</div>
-                    <div class="card-desc">Pay electricity, water, and broadband bills securely in one click.</div>
-                    <a href="#" class="btn">Pay Bills</a>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- 3. Shopping Section -->
-    <div class="container" id="shopping">
-        <h2 class="section-title">Himachali Shopping & Gear</h2>
-        <div class="grid">
-            <div class="card">
-                <img src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=500&q=80" alt="Backpack">
-                <div class="card-content">
-                    <div class="card-title">Himalayan Trekking Backpack</div>
-                    <div class="card-desc">Durable, waterproof backpack designed specifically for mountain hiking.</div>
-                    <a href="#" class="btn">Buy Now</a>
-                </div>
-            </div>
-            <div class="card">
-                <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=500&q=80" alt="Shoes">
-                <div class="card-content">
-                    <div class="card-title">All-Terrain Trekking Shoes</div>
-                    <div class="card-desc">High grip, anti-slip shoes for rough and hilly terrains.</div>
-                    <a href="#" class="btn">Buy Now</a>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- 4. Local Business Section -->
-    <div class="container" id="business">
-        <h2 class="section-title">Explore Local Businesses & Cafes</h2>
-        <div class="grid">
-            <div class="card">
-                <img src="https://images.unsplash.com/photo-1555396273-367ea4e4cb45?auto=format&fit=crop&w=500&q=80" alt="Cafe">
-                <div class="card-content">
-                    <div class="card-title">Hills Brew & Cafe</div>
-                    <div class="card-desc">Enjoy authentic local pahadi snacks, organic coffee, and a cozy mountain view.</div>
-                    <a href="#" class="btn">View Location</a>
-                </div>
-            </div>
-        </div>
-    </div>
-<!-- Professional Direct Booking & Order Modal -->
-<dialog id="bookingModal" style="padding: 25px; border-radius: 12px; border: none; box-shadow: 0 4px 25px rgba(0,0,0,0.15); max-width: 420px; width: 90%;">
-    <h3 id="modalTitle" style="margin-bottom: 15px; color: #0071c2; font-size: 20px;">HimalayanGo Direct Booking</h3>
-    <p style="font-size: 13px; color: #666; margin-bottom: 15px;">Aapki request direct hamare secure server par register ki jayegi.</p>
-    
-    <form id="bookingForm" onsubmit="handleDirectSubmission(event)">
-        <div style="margin-bottom: 12px;">
-            <label style="font-size: 14px; display: block; margin-bottom: 5px; font-weight: bold;">Full Name:</label>
-            <input type="text" id="userName" required style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 6px;">
-        </div>
-        <div style="margin-bottom: 12px;">
-            <label style="font-size: 14px; display: block; margin-bottom: 5px; font-weight: bold;">Mobile Number:</label>
-            <input type="tel" id="userPhone" required style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 6px;">
-        </div>
-        <div style="margin-bottom: 20px;">
-            <label style="font-size: 14px; display: block; margin-bottom: 5px; font-weight: bold;">Date / Schedule:</label>
-            <input type="date" id="checkInDate" required style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 6px;">
-        </div>
-        <div style="display: flex; justify-content: flex-end; gap: 10px;">
-            <button type="button" onclick="closeModal()" style="padding: 10px 16px; background: #e0e0e0; border: none; border-radius: 6px; cursor: pointer; font-weight: bold;">Cancel</button>
-            <button type="submit" style="padding: 10px 16px; background: #0071c2; color: white; border: none; border-radius: 6px; cursor: pointer; font-weight: bold;">Confirm Order</button>
-        </div>
-    </form>
-</dialog>
-
-<script>
-    let currentItem = "";
-
-    function openModal(itemName) {
-        currentItem = itemName;
-        document.getElementById('modalTitle').innerText = "Book / Order: " + itemName;
-        document.getElementById('bookingModal').showModal();
-    }
-
-    function closeModal() {
-        document.getElementById('bookingModal').close();
-    }
-
-    function handleDirectSubmission(event) {
-        event.preventDefault();
-        let name = document.getElementById('userName').value;
-        let phone = document.getElementById('userPhone').value;
-        let date = document.getElementById('checkInDate').value;
+    <!-- Booking / Order Modal -->
+    <dialog id="bookingModal" style="padding: 25px; border-radius: 12px; border: none; box-shadow: 0 4px 25px rgba(0,0,0,0.15); max-width: 420px; width: 90%;">
+        <h3 id="modalTitle" style="margin-bottom: 10px; color: #0071c2; font-size: 20px;">Book / Order</h3>
+        <p id="itemDesc" style="font-size: 13px; color: #555; margin-bottom: 15px;"></p>
         
-        // Data ko browser local storage mein save karna taaki aapke paas record rahe
-        let orders = JSON.parse(localStorage.getItem('himalayanGoOrders') || '[]');
-        orders.push({
-            item: currentItem,
-            customerName: name,
-            customerPhone: phone,
-            bookingDate: date,
-            timestamp: new Date().toLocaleString()
-        });
-        localStorage.setItem('himalayanGoOrders', JSON.stringify(orders));
+        <form id="bookingForm" onsubmit="handleDirectSubmission(event)">
+            <div style="margin-bottom: 12px;">
+                <label style="font-size: 13px; display: block; margin-bottom: 5px; font-weight: bold;">Full Name:</label>
+                <input type="text" id="userName" required style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 6px;">
+            </div>
+            <div style="margin-bottom: 12px;">
+                <label style="font-size: 13px; display: block; margin-bottom: 5px; font-weight: bold;">Mobile Number:</label>
+                <input type="tel" id="userPhone" required style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 6px;">
+            </div>
+            <div style="margin-bottom: 20px;">
+                <label style="font-size: 13px; display: block; margin-bottom: 5px; font-weight: bold;">Date / Schedule:</label>
+                <input type="date" id="checkInDate" required style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 6px;">
+            </div>
+            <div style="display: flex; justify-content: flex-end; gap: 10px;">
+                <button type="button" onclick="closeModal()" style="padding: 10px 16px; background: #e0e0e0; border: none; border-radius: 6px; cursor: pointer; font-weight: bold;">Cancel</button>
+                <button type="submit" style="padding: 10px 16px; background: #0071c2; color: white; border: none; border-radius: 6px; cursor: pointer; font-weight: bold;">Confirm Order</button>
+            </div>
+        </form>
+    </dialog>
 
-        alert("Success! Aapki request HimalayanGo par successfully record ho chuki hai. Hum jald hi aapse sampark karenge.");
-        
-        closeModal();
-        document.getElementById('bookingForm').reset();
-    }
-</script>
-<!-- Search Bar Section -->
-<div style="text-align: center; margin: 20px 0; padding: 0 15px;">
-    <input type="text" id="searchInput" placeholder="Search hotels, shopping items, cafes..." onkeyup="filterItems()" style="width: 100%; max-width: 500px; padding: 12px 15px; font-size: 16px; border: 2px solid #0071c2; border-radius: 25px; outline: none; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
-</div>
+    <!-- JavaScript Data & Logic -->
+    <script>
+        const allItems = [
+            {
+                category: "hotel",
+                name: "Snow Peak View Resort, Shimla",
+                image: "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=500&q=80",
+                description: "Luxurious rooms with panoramic mountain views, free Wi-Fi, and top-tier hospitality."
+            },
+            {
+                category: "hotel",
+                name: "Pine Forest Valley Hotel",
+                image: "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=500&q=80",
+                description: "Surrounded by pine trees, perfect for a peaceful and cozy stay in nature."
+            },
+            {
+                category: "shopping",
+                name: "Himalayan Trekking Backpack",
+                image: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=500&q=80",
+                description: "Waterproof, durable, and spacious backpack built for rough mountain trails."
+            },
+            {
+                category: "shopping",
+                name: "All-Terrain Trekking Shoes",
+                image: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=500&q=80",
+                description: "High grip, anti-slip shoes designed specifically for rocky and snowy terrains."
+            },
+            {
+                category: "business",
+                name: "Hills Brew & Cafe",
+                image: "https://images.unsplash.com/photo-1555396273-3674e4cb45?auto=format&fit=crop&w=500&q=80",
+                description: "Enjoy authentic local pahadi snacks, organic coffee, and a cozy aesthetic ambiance."
+            }
+        ];
 
-<!-- Items Container (Jahan search karne par ya default items dikhenge) -->
-<div id="itemsContainer" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; padding: 20px; max-width: 1200px; margin: 0 auto;">
-    <!-- Yeh JavaScript ke through automatically fill hoga -->
-</div>
+        let currentItem = "";
 
-<!-- Booking & Detail Modal -->
-<dialog id="bookingModal" style="padding: 25px; border-radius: 12px; border: none; box-shadow: 0 4px 25px rgba(0,0,0,0.15); max-width: 420px; width: 90%;">
-    <h3 id="modalTitle" style="margin-bottom: 15px; color: #0071c2; font-size: 20px;">Book / Order</h3>
-    <p id="itemDesc" style="font-size: 14px; color: #555; margin-bottom: 15px;"></p>
-    
-    <form id="bookingForm" onsubmit="handleDirectSubmission(event)">
-        <div style="margin-bottom: 12px;">
-            <label style="font-size: 14px; display: block; margin-bottom: 5px; font-weight: bold;">Full Name:</label>
-            <input type="text" id="userName" required style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 6px;">
-        </div>
-        <div style="margin-bottom: 12px;">
-            <label style="font-size: 14px; display: block; margin-bottom: 5px; font-weight: bold;">Mobile Number:</label>
-            <input type="tel" id="userPhone" required style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 6px;">
-        </div>
-        <div style="margin-bottom: 20px;">
-            <label style="font-size: 14px; display: block; margin-bottom: 5px; font-weight: bold;">Date / Schedule:</label>
-            <input type="date" id="checkInDate" required style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 6px;">
-        </div>
-        <div style="display: flex; justify-content: flex-end; gap: 10px;">
-            <button type="button" onclick="closeModal()" style="padding: 10px 16px; background: #e0e0e0; border: none; border-radius: 6px; cursor: pointer; font-weight: bold;">Cancel</button>
-            <button type="submit" style="padding: 10px 16px; background: #0071c2; color: white; border: none; border-radius: 6px; cursor: pointer; font-weight: bold;">Confirm Booking</button>
-        </div>
-    </form>
-</dialog>
+        function displayItems(items) {
+            const container = document.getElementById('itemsContainer');
+            container.innerHTML = "";
 
-<!-- JavaScript for Dynamic Listing & Live Search -->
-<script>
-    // Aapke saare items (Hotels, Shopping, etc.) yahan asani se add ya update kiye ja sakte hain
-    const allItems = [
-        {
-            category: "hotel",
-            name: "Snow Peak View Resort, Shimla",
-            image: "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=500&q=80",
-            description: "Luxurious rooms with panoramic mountain views, free Wi-Fi, and top-tier hospitality."
-        },
-        {
-            category: "hotel",
-            name: "Pine Forest Valley Hotel",
-            image: "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=500&q=80",
-            description: "Surrounded by pine trees, perfect for a peaceful and cozy stay in nature."
-        },
-        {
-            category: "shopping",
-            name: "Himalayan Trekking Backpack",
-            image: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=500&q=80",
-            description: "Waterproof, durable, and spacious backpack built for rough mountain trails."
-        },
-        {
-            category: "shopping",
-            name: "All-Terrain Trekking Shoes",
-            image: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=500&q=80",
-            description: "High grip, anti-slip shoes designed specifically for rocky and snowy terrains."
-        },
-        {
-            category: "business",
-            name: "Hills Brew & Cafe",
-            image: "https://images.unsplash.com/photo-1555396273-3674e4cb45?auto=format&fit=crop&w=500&q=80",
-            description: "Enjoy authentic local pahadi snacks, organic coffee, and a cozy aesthetic ambiance."
-        }
-    ];
+            if (items.length === 0) {
+                container.innerHTML = <p style="grid-column: 1/-1; text-align: center; color: #777; font-size: 16px; padding: 40px;">No items found matching your search.</p>;
+                return;
+            }
 
-    let currentItem = "";
-
-    // Items ko screen par display karne ka function
-    function displayItems(items) {
-        const container = document.getElementById('itemsContainer');
-        container.innerHTML = "";
-
-        if (items.length === 0) {
-            container.innerHTML = <p style="grid-column: 1/-1; text-align: center; color: #777; font-size: 16px;">No items found matching your search.</p>;
-            return;
+            items.forEach(item => {
+                const card = document.createElement('div');
+                card.className = "card";
+                
+                card.innerHTML = `
+                    <img src="${item.image}" alt="${item.name}">
+                    <div class="card-content">
+                        <div class="card-title">${item.name}</div>
+                        <div class="card-desc">${item.description}</div>
+                        <button onclick="openModal('${item.name}', '${item.description}')" class="btn">Book / Buy Now</button>
+                    </div>
+                `;
+                container.appendChild(card);
+            });
         }
 
-        items.forEach(item => {
-            const card = document.createElement('div');
-            card.className = "card";
-            card.style.cssText = "background: #fff; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.08); display: flex; flex-direction: column;";
+        function filterItems() {
+            const query = document.getElementById('searchInput').value.toLowerCase();
+            const filtered = allItems.filter(item => 
+                item.name.toLowerCase().includes(query) || 
+                item.description.toLowerCase().includes(query) ||
+                item.category.toLowerCase().includes(query)
+            );
+            displayItems(filtered);
+        }
+
+        function filterByCategory(cat) {
+            if(cat === 'all') {
+                displayItems(allItems);
+            } else {
+                const filtered = allItems.filter(item => item.category === cat);
+                displayItems(filtered);
+            }
+        }
+
+        function openModal(itemName, itemDesc) {
+            currentItem = itemName;
+            document.getElementById('modalTitle').innerText = "Book / Order: " + itemName;
+            document.getElementById('itemDesc').innerText = itemDesc;
+            document.getElementById('bookingModal').showModal();
+        }
+
+        function closeModal() {
+            document.getElementById('bookingModal').close();
+        }
+
+        function handleDirectSubmission(event) {
+            event.preventDefault();
+            let name = document.getElementById('userName').value;
+            let phone = document.getElementById('userPhone').value;
+            let date = document.getElementById('checkInDate').value;
             
-            card.innerHTML = `
-                <img src="${item.image}" alt="${item.name}" style="width: 100%; height: 180px; object-fit: cover;">
-                <div style="padding: 15px; display: flex; flex-direction: column; flex-grow: 1;">
-                    <h3 style="font-size: 18px; margin-bottom: 8px; color: #333;">${item.name}</h3>
-                    <p style="font-size: 13px; color: #666; margin-bottom: 15px; flex-grow: 1;">${item.description}</p>
-                    <button onclick="openModal('${item.name}', '${item.description}')" class="btn" style="background: #0071c2; color: white; padding: 10px; border: none; border-radius: 6px; cursor: pointer; font-weight: bold; width: 100%;">Book / Buy Now</button>
-                </div>
-            `;
-            container.appendChild(card);
-        });
-    }
+            let orders = JSON.parse(localStorage.getItem('himalayanGoOrders') || '[]');
+            orders.push({
+                item: currentItem,
+                customerName: name,
+                customerPhone: phone,
+                bookingDate: date,
+                timestamp: new Date().toLocaleString()
+            });
+            localStorage.setItem('himalayanGoOrders', JSON.stringify(orders));
 
-    // Live Search Filter Function
-    function filterItems() {
-        const query = document.getElementById('searchInput').value.toLowerCase();
-        const filtered = allItems.filter(item => 
-            item.name.toLowerCase().includes(query) || 
-            item.description.toLowerCase().includes(query) ||
-            item.category.toLowerCase().includes(query)
-        );
-        displayItems(filtered);
-    }
+            alert("Success! Aapki request HimalayanGo par securely record ho chuki hai.");
+            closeModal();
+            document.getElementById('bookingForm').reset();
+        }
 
-    // Modal Open/Close Controls
-    function openModal(itemName, itemDesc) {
-        currentItem = itemName;
-        document.getElementById('modalTitle').innerText = "Book / Order: " + itemName;
-        document.getElementById('itemDesc').innerText = itemDesc;
-        document.getElementById('bookingModal').showModal();
-    }
-
-    function closeModal() {
-        document.getElementById('bookingModal').close();
-    }
-
-    // Direct Data Save (Local Storage)
-    function handleDirectSubmission(event) {
-        event.preventDefault();
-        let name = document.getElementById('userName').value;
-        let phone = document.getElementById('userPhone').value;
-        let date = document.getElementById('checkInDate').value;
-        
-        let orders = JSON.parse(localStorage.getItem('himalayanGoOrders') || '[]');
-        orders.push({
-            item: currentItem,
-            customerName: name,
-            customerPhone: phone,
-            bookingDate: date,
-            timestamp: new Date().toLocaleString()
-        });
-        localStorage.setItem('himalayanGoOrders', JSON.stringify(orders));
-
-        alert("Success! Aapki request HimalayanGo par securely record ho chuki hai.");
-        closeModal();
-        document.getElementById('bookingForm').reset();
-    }
-
-    // Page load hote hi saare items dikhana
-    window.onload = function() {
-        displayItems(allItems);
-    };
-</script>
-
+        // Load all items on startup
+        window.onload = function() {
+            displayItems(allItems);
+        };
+    </script>
 </body>
 </html>
