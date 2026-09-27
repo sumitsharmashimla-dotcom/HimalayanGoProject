@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HimalayanGo - Local Businesses & Handicrafts</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        body {
+            background-color: #f9f9f9;
+            color: #333;
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 50px;
+            background: #ffffff;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #0071c2;
+        }
+        nav a {
+            margin-left: 20px;
+            text-decoration: none;
+            color: #555;
+            font-weight: 600;
+        }
+        nav a:hover, nav a.active {
+            color: #0071c2;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+        .section-title {
+            font-size: 28px;
+            margin-bottom: 10px;
+            color: #222;
+        }
+        .section-subtitle {
+            font-size: 15px;
+            color: #666;
+            margin-bottom: 30px;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+        .card {
+            background: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+            display: flex;
+            flex-direction: column;
+        }
+        .card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        .card-content {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+        .card-title {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+        .badge {
+            display: inline-block;
+            background: #e1f5fe;
+            color: #0277bd;
+            font-size: 12px;
+            padding: 4px 8px;
+            border-radius: 4px;
+            margin-bottom: 10px;
+            font-weight: bold;
+            width: max-content;
+        }
+        .card-desc {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+        .btn-group {
+            display: flex;
+            gap: 10px;
+        }
+        .btn {
+            flex: 1;
+            text-align: center;
+            background: #0071c2;
+            color: #fff;
+            padding: 10px 10px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 14px;
+        }
+        .btn-whatsapp {
+            background: #25d366;
+        }
+        .btn:hover {
+            opacity: 0.9;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">🏔️ HimalayanGo</div>
+        <nav>
+            <a href="index.html">Hotels</a>
+            <a href="recharge.html">Bills & Recharge</a>
+            <a href="shopping.html">Shopping</a>
+            <a href="local-business.html" class="active">Local Business</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <h2 class="section-title">Explore Local Businesses & Handcrafts</h2>
+        <p class="section-subtitle">Support local artisans, traditional cafes, and authentic homestays across Himachal.</p>
+        
+        <div class="grid">
+            
+            <!-- Business 1 -->
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=500&q=80" alt="Local Cafe">
+                <div class="card-content">
+                    <span class="badge">Cafe & Dining</span>
+                    <div class="card-title">Hills Brew & Cafe</div>
+                    <div class="card-desc">Enjoy authentic local pahadi snacks, organic coffee, and a cozy mountain view ambiance.</div>
+                    <div class="btn-group">
+                        <a href="https://maps.google.com" target="_blank" class="btn">View Location</a>
+                        <a href="https://wa.me/91XXXXXXXXXX" target="_blank" class="btn btn-whatsapp">Contact</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Business 2 -->
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1606760227091-3dd870d97f1d?auto=format&fit=crop&w=500&q=80" alt="Handicraft">
+                <div class="card-content">
+                    <span class="badge">Handicrafts & Woolens</span>
+                    <div class="card-title">Himachali Kullu Shawls & Art</div>
+                    <div class="card-desc">Handwoven traditional Kullu shawls, stoles, caps, and pure wool garments crafted by local weavers.</div>
+                    <div class="btn-group">
+                        <a href="https://maps.google.com" target="_blank" class="btn">View Location</a>
+                        <a href="https://wa.me/91XXXXXXXXXX" target="_blank" class="btn btn-whatsapp">Contact</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Business 3 -->
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=500&q=80" alt="Homestay">
+                <div class="card-content">
+                    <span class="badge">Homestay & Stays</span>
+                    <div class="card-title">Pine Valley Homestay</div>
+                    <div class="card-desc">Experience traditional Himachali hospitality, home-cooked organic meals, and serene natural surroundings.</div>
+                    <div class="btn-group">
+                        <a href="https://maps.google.com" target="_blank" class="btn">View Location</a>
+                        <a href="https://wa.me/91XXXXXXXXXX" target="_blank" class="btn btn-whatsapp">Contact</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+</html>
