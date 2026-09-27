@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+[4:33 pm, 27/9/2026] Сумит: <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -25,275 +25,908 @@
             align-items: center;
             position: sticky;
             top: 0;
-            z-index: 100;
-        }
-        .logo {
-            font-size: 22px;
-            font-weight: bold;
-            color: #0071c2;
-            text-decoration: none;
-        }
-        nav a {
-            margin-left: 20px;
-            text-decoration: none;
-            color: #555;
-            font-size: 15px;
-            font-weight: 500;
-        }
-        nav a:hover {
-            color: #0071c2;
-        }
-        /* Hero & Search Section */
-        .hero {
-            text-align: center;
-            padding: 40px 20px;
-            background: linear-gradient(135deg, #0071c2, #004d80);
-            color: white;
-        }
-        .hero h1 {
-            font-size: 28px;
-            margin-bottom: 15px;
-        }
-        .search-box {
-            width: 100%;
-            max-width: 500px;
-            padding: 14px 20px;
-            font-size: 16px;
-            border: none;
-            border-radius: 30px;
-            outline: none;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-        }
-        /* Main Container for Cards */
-        .container {
-            max-width: 1200px;
-            margin: 30px auto;
-            padding: 0 20px;
-        }
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
-        }
-        .card {
-            background: #fff;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.06);
-            display: flex;
-            flex-direction: column;
-            transition: transform 0.2s ease;
-        }
-        .card:hover {
-            transform: translateY(-5px);
-        }
-        .card img {
-            width: 100%;
-            height: 180px;
-            object-fit: cover;
-        }
-        .card-content {
-            padding: 20px;
-            display: flex;
-            flex-direction: column;
-            flex-grow: 1;
-        }
-        .card-title {
-            font-size: 18px;
-            font-weight: bold;
-            margin-bottom: 8px;
-            color: #222;
-        }
-        .card-desc {
-            font-size: 13px;
-            color: #666;
-            margin-bottom: 20px;
-            flex-grow: 1;
-            line-height: 1.4;
-        }
-        .btn {
-            background: #0071c2;
-            color: white;
-            padding: 10px;
-            border: none;
-            border-radius: 6px;
-            cursor: pointer;
-            font-weight: bold;
-            text-align: center;
-            text-decoration: none;
-            width: 100%;
-        }
-        .btn:hover {
-            background: #005999;
-        }
-    </style>
+          …
+[4:38 pm, 27/9/2026] Сумит: <!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>HimalayanGo - Explore & Book</title>
+
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f4f6f9;
+    color: #333;
+}
+
+/* ================= HEADER ================= */
+
+header {
+    background: white;
+    padding: 16px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    text-decoration: none;
+    color: #0071c2;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+nav {
+    display: flex;
+    gap: 20px;
+}
+
+nav button {
+    border: none;
+    background: none;
+    color: #555;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+nav button:hover {
+    color: #0071c2;
+}
+
+/* ================= HERO ================= */
+
+.hero {
+    background: linear-gradient(135deg, #0071c2, #003f68);
+    color: white;
+    text-align: center;
+    padding: 60px 20px;
+}
+
+.hero h1 {
+    font-size: 34px;
+    margin-bottom: 15px;
+}
+
+.hero p {
+    font-size: 16px;
+    margin-bottom: 25px;
+    opacity: 0.9;
+}
+
+.search-box {
+    width: 90%;
+    max-width: 600px;
+    padding: 16px 22px;
+    border: none;
+    border-radius: 30px;
+    font-size: 16px;
+    outline: none;
+}
+
+/* ================= CATEGORY ================= */
+
+.category-section {
+    text-align: center;
+    padding: 30px 20px 10px;
+}
+
+.category-title {
+    font-size: 25px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.category-buttons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.category-buttons button {
+    padding: 10px 18px;
+    border: 1px solid #0071c2;
+    background: white;
+    color: #0071c2;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.category-buttons button:hover {
+    background: #0071c2;
+    color: white;
+}
+
+/* ================= CONTAINER ================= */
+
+.container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 30px 20px 60px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+}
+
+/* ================= CARD ================= */
+
+.card {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+    transition: 0.25s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+}
+
+.card-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+    background: #ddd;
+}
+
+.card-content {
+    padding: 20px;
+}
+
+.card-category {
+    color: #0071c2;
+    font-size: 12px;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+}
+
+.card-title {
+    font-size: 20px;
+    font-weight: bold;
+    color: #222;
+    margin-bottom: 10px;
+}
+
+.card-desc {
+    color: #666;
+    font-size: 14px;
+    line-height: 1.5;
+    margin-bottom: 18px;
+}
+
+.btn {
+    width: 100%;
+    border: none;
+    padding: 12px;
+    border-radius: 8px;
+    background: #0071c2;
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background: #005b9f;
+}
+
+/* ================= NO RESULTS ================= */
+
+.no-results {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 60px 20px;
+    color: #777;
+    font-size: 18px;
+}
+
+/* ================= MODAL ================= */
+
+.modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.6);
+    z-index: 5000;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.modal.active {
+    display: flex;
+}
+
+.modal-box {
+    background: white;
+    width: 100%;
+    max-width: 450px;
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+}
+
+.modal-box h2 {
+    color: #0071c2;
+    margin-bottom: 10px;
+}
+
+.modal-item {
+    color: #666;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: bold;
+    font-size: 13px;
+    margin-bottom: 6px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 7px;
+    font-size: 14px;
+    outline: none;
+}
+
+.form-group input:focus {
+    border-color: #0071c2;
+}
+
+.modal-buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.cancel-btn {
+    flex: 1;
+    padding: 12px;
+    border: none;
+    border-radius: 7px;
+    background: #ddd;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.confirm-btn {
+    flex: 1;
+    padding: 12px;
+    border: none;
+    border-radius: 7px;
+    background: #0071c2;
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+/* ================= FOOTER ================= */
+
+footer {
+    background: #073b5c;
+    color: white;
+    text-align: center;
+    padding: 30px 20px;
+}
+
+footer h2 {
+    margin-bottom: 10px;
+}
+
+footer p {
+    font-size: 14px;
+    opacity: 0.85;
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width: 700px) {
+
+    header {
+        padding: 14px 15px;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    nav {
+        gap: 12px;
+    }
+
+    nav button {
+        font-size: 13px;
+    }
+
+    .hero {
+        padding: 45px 15px;
+    }
+
+    .hero h1 {
+        font-size: 26px;
+    }
+
+    .grid {
+        grid-template-columns: 1fr;
+    }
+}
+</style>
 </head>
+
 <body>
 
-    <!-- Header -->
-    <header>
-        <a href="#" class="logo">🏔️ HimalayanGo</a>
-        <nav>
-            <a href="#" onclick="filterByCategory('all')">All</a>
-            <a href="#" onclick="filterByCategory('hotel')">Hotels</a>
-            <a href="#" onclick="filterByCategory('shopping')">Shopping</a>
-            <a href="#" onclick="filterByCategory('business')">Cafes</a>
-        </nav>
-    </header>
+<!-- ================= HEADER ================= -->
 
-    <!-- Hero Search Area -->
-    <div class="hero">
-        <h1>Your Direct Gateway to Himachal</h1>
-        <input type="text" id="searchInput" class="search-box" placeholder="Search hotels, trekking gear, cafes..." onkeyup="filterItems()">
+<header>
+
+    <a href="#" class="logo">
+        🏔️ HimalayanGo
+    </a>
+
+    <nav>
+        <button onclick="filterByCategory('all')">All</button>
+        <button onclick="filterByCategory('hotel')">Hotels</button>
+        <button onclick="filterByCategory('shopping')">Shopping</button>
+        <button onclick="filterByCategory('business')">Cafes</button>
+    </nav>
+
+</header>
+
+
+<!-- ================= HERO ================= -->
+
+<section class="hero">
+
+    <h1>Your Direct Gateway to Himachal</h1>
+
+    <p>
+        Explore Hotels, Shopping, Cafes & Local Businesses
+    </p>
+
+    <input
+        type="text"
+        id="searchInput"
+        class="search-box"
+        placeholder="Search hotels, trekking gear, cafes..."
+    >
+
+</section>
+
+
+<!-- ================= CATEGORY ================= -->
+
+<section class="category-section">
+
+    <div class="category-title">
+        Explore HimalayanGo
     </div>
 
-    <!-- Dynamic Items Section (Yeh container sabse pehle hona chahiye) -->
-    <div class="container">
-        <div id="itemsContainer" class="grid">
-            <!-- JavaScript will populate items here dynamically -->
-        </div>
+    <div class="category-buttons">
+
+        <button onclick="filterByCategory('all')">
+            🌐 All
+        </button>
+
+        <button onclick="filterByCategory('hotel')">
+            🏨 Hotels
+        </button>
+
+        <button onclick="filterByCategory('shopping')">
+            🛍️ Shopping
+        </button>
+
+        <button onclick="filterByCategory('business')">
+            ☕ Cafes
+        </button>
+
     </div>
 
-    <!-- Booking / Order Modal -->
-    <dialog id="bookingModal" style="padding: 25px; border-radius: 12px; border: none; box-shadow: 0 4px 25px rgba(0,0,0,0.15); max-width: 420px; width: 90%;">
-        <h3 id="modalTitle" style="margin-bottom: 10px; color: #0071c2; font-size: 20px;">Book / Order</h3>
-        <p id="itemDesc" style="font-size: 13px; color: #555; margin-bottom: 15px;"></p>
-        
-        <form id="bookingForm" onsubmit="handleDirectSubmission(event)">
-            <div style="margin-bottom: 12px;">
-                <label style="font-size: 13px; display: block; margin-bottom: 5px; font-weight: bold;">Full Name:</label>
-                <input type="text" id="userName" required style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 6px;">
+</section>
+
+
+<!-- ================= PRODUCTS ================= -->
+
+<div class="container">
+
+    <div id="itemsContainer" class="grid"></div>
+
+</div>
+
+
+<!-- ================= BOOKING MODAL ================= -->
+
+<div id="bookingModal" class="modal">
+
+    <div class="modal-box">
+
+        <h2>Book / Order</h2>
+
+        <div id="modalItem" class="modal-item"></div>
+
+        <form id="bookingForm">
+
+            <div class="form-group">
+
+                <label>
+                    Full Name
+                </label>
+
+                <input
+                    type="text"
+                    id="userName"
+                    placeholder="Enter your name"
+                    required
+                >
+
             </div>
-            <div style="margin-bottom: 12px;">
-                <label style="font-size: 13px; display: block; margin-bottom: 5px; font-weight: bold;">Mobile Number:</label>
-                <input type="tel" id="userPhone" required style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 6px;">
+
+
+            <div class="form-group">
+
+                <label>
+                    Mobile Number
+                </label>
+
+                <input
+                    type="tel"
+                    id="userPhone"
+                    placeholder="Enter mobile number"
+                    maxlength="10"
+                    required
+                >
+
             </div>
-            <div style="margin-bottom: 20px;">
-                <label style="font-size: 13px; display: block; margin-bottom: 5px; font-weight: bold;">Date / Schedule:</label>
-                <input type="date" id="checkInDate" required style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 6px;">
+
+
+            <div class="form-group">
+
+                <label>
+                    Date / Schedule
+                </label>
+
+                <input
+                    type="date"
+                    id="bookingDate"
+                    required
+                >
+
             </div>
-            <div style="display: flex; justify-content: flex-end; gap: 10px;">
-                <button type="button" onclick="closeModal()" style="padding: 10px 16px; background: #e0e0e0; border: none; border-radius: 6px; cursor: pointer; font-weight: bold;">Cancel</button>
-                <button type="submit" style="padding: 10px 16px; background: #0071c2; color: white; border: none; border-radius: 6px; cursor: pointer; font-weight: bold;">Confirm Order</button>
+
+
+            <div class="modal-buttons">
+
+                <button
+                    type="button"
+                    class="cancel-btn"
+                    onclick="closeModal()"
+                >
+                    Cancel
+                </button>
+
+                <button
+                    type="submit"
+                    class="confirm-btn"
+                >
+                    Confirm
+                </button>
+
             </div>
+
         </form>
-    </dialog>
 
-    <!-- JavaScript Data & Logic (Script hamesha HTML container ke baad aakhir mein hoti hai) -->
-    <script>
-        const allItems = [
-            {
-                category: "hotel",
-                name: "Snow Peak View Resort, Shimla",
-                image: "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=500&q=80",
-                description: "Luxurious rooms with panoramic mountain views, free Wi-Fi, and top-tier hospitality."
-            },
-            {
-                category: "hotel",
-                name: "Pine Forest Valley Hotel",
-                image: "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=500&q=80",
-                description: "Surrounded by pine trees, perfect for a peaceful and cozy stay in nature."
-            },
-            {
-                category: "shopping",
-                name: "Himalayan Trekking Backpack",
-                image: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=500&q=80",
-                description: "Waterproof, durable, and spacious backpack built for rough mountain trails."
-            },
-            {
-                category: "shopping",
-                name: "All-Terrain Trekking Shoes",
-                image: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=500&q=80",
-                description: "High grip, anti-slip shoes designed specifically for rocky and snowy terrains."
-            },
-            {
-                category: "business",
-                name: "Hills Brew & Cafe",
-                image: "https://images.unsplash.com/photo-1555396273-3674e4cb45?auto=format&fit=crop&w=500&q=80",
-                description: "Enjoy authentic local pahadi snacks, organic coffee, and a cozy aesthetic ambiance."
-            }
-        ];
+    </div>
 
-        let currentItem = "";
+</div>
 
-        function displayItems(items) {
-            const container = document.getElementById('itemsContainer');
-            container.innerHTML = "";
 
-            if (items.length === 0) {
-                container.innerHTML = <p style="grid-column: 1/-1; text-align: center; color: #777; font-size: 16px; padding: 40px;">No items found matching your search.</p>;
-                return;
-            }
+<!-- ================= FOOTER ================= -->
 
-            items.forEach(item => {
-                const card = document.createElement('div');
-                card.className = "card";
-                
-                card.innerHTML = `
-                    <img src="${item.image}" alt="${item.name}">
-                    <div class="card-content">
-                        <div class="card-title">${item.name}</div>
-                        <div class="card-desc">${item.description}</div>
-                        <button onclick="openModal('${item.name}', '${item.description}')" class="btn">Book / Buy Now</button>
-                    </div>
-                `;
-                container.appendChild(card);
+<footer>
+
+    <h2>🏔️ HimalayanGo</h2>
+
+    <p>
+        Your Direct Gateway to Himachal
+    </p>
+
+    <p style="margin-top:10px;">
+        Hotels • Shopping • Cafes • Local Businesses
+    </p>
+
+</footer>
+
+
+<script>
+
+/* ==================================================
+   HIMALAYANGO DATA
+================================================== */
+
+const allItems = [
+
+    {
+        category: "hotel",
+        name: "Snow Peak View Resort, Shimla",
+        image: "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=900&q=80",
+        description: "Luxurious rooms with panoramic mountain views, free Wi-Fi and comfortable hospitality."
+    },
+
+    {
+        category: "hotel",
+        name: "Pine Forest Valley Hotel",
+        image: "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=900&q=80",
+        description: "A peaceful hotel surrounded by pine trees, perfect for a relaxing Himachal stay."
+    },
+
+    {
+        category: "shopping",
+        name: "Himalayan Trekking Backpack",
+        image: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=900&q=80",
+        description: "Durable and spacious trekking backpack suitable for mountain trails and travel."
+    },
+
+    {
+        category: "shopping",
+        name: "All-Terrain Trekking Shoes",
+        image: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=900&q=80",
+        description: "Comfortable trekking shoes with strong grip for rocky and mountain terrain."
+    },
+
+    {
+        category: "business",
+        name: "Hills Brew & Cafe",
+        image: "https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&w=900&q=80",
+        description: "Enjoy local pahadi snacks, coffee and a peaceful mountain cafe atmosphere."
+    },
+
+    {
+        category: "business",
+        name: "Mountain View Cafe",
+        image: "https://images.unsplash.com/photo-1511081692775-05d0f180a065?auto=format&fit=crop&w=900&q=80",
+        description: "A beautiful cafe for coffee, snacks and enjoying Himalayan views."
+    }
+
+];
+
+
+/* ==================================================
+   VARIABLES
+================================================== */
+
+let currentItem = null;
+
+
+/* ==================================================
+   DISPLAY ITEMS
+================================================== */
+
+function displayItems(items) {
+
+    const container =
+        document.getElementById("itemsContainer");
+
+    container.innerHTML = "";
+
+
+    if (items.length === 0) {
+
+        container.innerHTML = `
+            <div class="no-results">
+                🔍<br><br>
+                No items found.
+                <br>
+                Try another search.
+            </div>
+        `;
+
+        return;
+    }
+
+
+    items.forEach((item, index) => {
+
+        const card =
+            document.createElement("div");
+
+        card.className = "card";
+
+
+        card.innerHTML = `
+
+            <img
+                class="card-image"
+                src="${item.image}"
+                alt="${item.name}"
+                onerror="this.src='https://via.placeholder.com/900x500?text=HimalayanGo'"
+            >
+
+            <div class="card-content">
+
+                <div class="card-category">
+                    ${getCategoryName(item.category)}
+                </div>
+
+                <div class="card-title">
+                    ${item.name}
+                </div>
+
+                <div class="card-desc">
+                    ${item.description}
+                </div>
+
+                <button
+                    class="btn"
+                    onclick="openModal(${index})"
+                >
+                    Book / Buy Now
+                </button>
+
+            </div>
+        `;
+
+
+        container.appendChild(card);
+
+    });
+
+}
+
+
+/* ==================================================
+   CATEGORY NAME
+================================================== */
+
+function getCategoryName(category) {
+
+    if (category === "hotel") {
+        return "Hotel";
+    }
+
+    if (category === "shopping") {
+        return "Shopping";
+    }
+
+    if (category === "business") {
+        return "Cafe / Local Business";
+    }
+
+    return category;
+}
+
+
+/* ==================================================
+   SEARCH
+================================================== */
+
+document
+    .getElementById("searchInput")
+    .addEventListener("input", function() {
+
+        const query =
+            this.value.toLowerCase().trim();
+
+
+        const filtered =
+            allItems.filter(item => {
+
+                return (
+
+                    item.name
+                        .toLowerCase()
+                        .includes(query)
+
+                    ||
+
+                    item.description
+                        .toLowerCase()
+                        .includes(query)
+
+                    ||
+
+                    item.category
+                        .toLowerCase()
+                        .includes(query)
+
+                );
+
             });
-        }
 
-        function filterItems() {
-            const query = document.getElementById('searchInput').value.toLowerCase();
-            const filtered = allItems.filter(item => 
-                item.name.toLowerCase().includes(query) || 
-                item.description.toLowerCase().includes(query) ||
-                item.category.toLowerCase().includes(query)
-            );
-            displayItems(filtered);
-        }
 
-        function filterByCategory(cat) {
-            if(cat === 'all') {
-                displayItems(allItems);
-            } else {
-                const filtered = allItems.filter(item => item.category === cat);
-                displayItems(filtered);
-            }
-        }
+        displayItems(filtered);
 
-        function openModal(itemName, itemDesc) {
-            currentItem = itemName;
-            document.getElementById('modalTitle').innerText = "Book / Order: " + itemName;
-            document.getElementById('itemDesc').innerText = itemDesc;
-            document.getElementById('bookingModal').showModal();
-        }
+    });
 
-        function closeModal() {
-            document.getElementById('bookingModal').close();
-        }
 
-        function handleDirectSubmission(event) {
-            event.preventDefault();
-            let name = document.getElementById('userName').value;
-            let phone = document.getElementById('userPhone').value;
-            let date = document.getElementById('checkInDate').value;
-            
-            let orders = JSON.parse(localStorage.getItem('himalayanGoOrders') || '[]');
-            orders.push({
-                item: currentItem,
-                customerName: name,
-                customerPhone: phone,
-                bookingDate: date,
-                timestamp: new Date().toLocaleString()
-            });
-            localStorage.setItem('himalayanGoOrders', JSON.stringify(orders));
+/* ==================================================
+   CATEGORY FILTER
+================================================== */
 
-            alert("Success! Aapki request HimalayanGo par securely record ho chuki hai.");
-            closeModal();
-            document.getElementById('bookingForm').reset();
-        }
+function filterByCategory(category) {
 
-        // Direct function call on page load
+    document.getElementById("searchInput").value = "";
+
+
+    if (category === "all") {
+
         displayItems(allItems);
-    </script>
+
+        return;
+    }
+
+
+    const filtered =
+        allItems.filter(
+            item => item.category === category
+        );
+
+
+    displayItems(filtered);
+
+}
+
+
+/* ==================================================
+   OPEN MODAL
+================================================== */
+
+function openModal(index) {
+
+    currentItem = allItems[index];
+
+
+    document.getElementById("modalItem").innerHTML = `
+
+        <strong>${currentItem.name}</strong>
+        <br><br>
+        ${currentItem.description}
+
+    `;
+
+
+    document
+        .getElementById("bookingModal")
+        .classList.add("active");
+
+}
+
+
+/* ==================================================
+   CLOSE MODAL
+================================================== */
+
+function closeModal() {
+
+    document
+        .getElementById("bookingModal")
+        .classList.remove("active");
+
+}
+
+
+/* ==================================================
+   BOOKING SUBMIT
+================================================== */
+
+document
+    .getElementById("bookingForm")
+    .addEventListener("submit", function(event) {
+
+        event.preventDefault();
+
+
+        const name =
+            document.getElementById("userName").value.trim();
+
+        const phone =
+            document.getElementById("userPhone").value.trim();
+
+        const date =
+            document.getElementById("bookingDate").value;
+
+
+        if (phone.length !== 10) {
+
+            alert("Please enter a valid 10 digit mobile number.");
+
+            return;
+
+        }
+
+
+        let orders =
+            JSON.parse(
+                localStorage.getItem("himalayanGoOrders")
+                || "[]"
+            );
+
+
+        orders.push({
+
+            item: currentItem.name,
+
+            category: currentItem.category,
+
+            customerName: name,
+
+            customerPhone: phone,
+
+            bookingDate: date,
+
+            timestamp: new Date().toLocaleString()
+
+        });
+
+
+        localStorage.setItem(
+            "himalayanGoOrders",
+            JSON.stringify(orders)
+        );
+
+
+        alert(
+            "✅ Request successfully submitted!\n\n" +
+            "HimalayanGo par aapki booking request save ho gayi hai."
+        );
+
+
+        document
+            .getElementById("bookingForm")
+            .reset();
+
+
+        closeModal();
+
+    });
+
+
+/* ==================================================
+   CLOSE MODAL WHEN CLICKING OUTSIDE
+================================================== */
+
+document
+    .getElementById("bookingModal")
+    .addEventListener("click", function(event) {
+
+        if (event.target === this) {
+            closeModal();
+        }
+
+    });
+
+
+/* ==================================================
+   INITIAL LOAD
+================================================== */
+
+displayItems(allItems);
+
+</script>
+
 </body>
 </html>
