@@ -252,6 +252,217 @@ nav a {
             </div>
         </div>
     </div>
+<!-- Professional Direct Booking & Order Modal -->
+<dialog id="bookingModal" style="padding: 25px; border-radius: 12px; border: none; box-shadow: 0 4px 25px rgba(0,0,0,0.15); max-width: 420px; width: 90%;">
+    <h3 id="modalTitle" style="margin-bottom: 15px; color: #0071c2; font-size: 20px;">HimalayanGo Direct Booking</h3>
+    <p style="font-size: 13px; color: #666; margin-bottom: 15px;">Aapki request direct hamare secure server par register ki jayegi.</p>
+    
+    <form id="bookingForm" onsubmit="handleDirectSubmission(event)">
+        <div style="margin-bottom: 12px;">
+            <label style="font-size: 14px; display: block; margin-bottom: 5px; font-weight: bold;">Full Name:</label>
+            <input type="text" id="userName" required style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 6px;">
+        </div>
+        <div style="margin-bottom: 12px;">
+            <label style="font-size: 14px; display: block; margin-bottom: 5px; font-weight: bold;">Mobile Number:</label>
+            <input type="tel" id="userPhone" required style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 6px;">
+        </div>
+        <div style="margin-bottom: 20px;">
+            <label style="font-size: 14px; display: block; margin-bottom: 5px; font-weight: bold;">Date / Schedule:</label>
+            <input type="date" id="checkInDate" required style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 6px;">
+        </div>
+        <div style="display: flex; justify-content: flex-end; gap: 10px;">
+            <button type="button" onclick="closeModal()" style="padding: 10px 16px; background: #e0e0e0; border: none; border-radius: 6px; cursor: pointer; font-weight: bold;">Cancel</button>
+            <button type="submit" style="padding: 10px 16px; background: #0071c2; color: white; border: none; border-radius: 6px; cursor: pointer; font-weight: bold;">Confirm Order</button>
+        </div>
+    </form>
+</dialog>
+
+<script>
+    let currentItem = "";
+
+    function openModal(itemName) {
+        currentItem = itemName;
+        document.getElementById('modalTitle').innerText = "Book / Order: " + itemName;
+        document.getElementById('bookingModal').showModal();
+    }
+
+    function closeModal() {
+        document.getElementById('bookingModal').close();
+    }
+
+    function handleDirectSubmission(event) {
+        event.preventDefault();
+        let name = document.getElementById('userName').value;
+        let phone = document.getElementById('userPhone').value;
+        let date = document.getElementById('checkInDate').value;
+        
+        // Data ko browser local storage mein save karna taaki aapke paas record rahe
+        let orders = JSON.parse(localStorage.getItem('himalayanGoOrders') || '[]');
+        orders.push({
+            item: currentItem,
+            customerName: name,
+            customerPhone: phone,
+            bookingDate: date,
+            timestamp: new Date().toLocaleString()
+        });
+        localStorage.setItem('himalayanGoOrders', JSON.stringify(orders));
+
+        alert("Success! Aapki request HimalayanGo par successfully record ho chuki hai. Hum jald hi aapse sampark karenge.");
+        
+        closeModal();
+        document.getElementById('bookingForm').reset();
+    }
+</script>
+<!-- Search Bar Section -->
+<div style="text-align: center; margin: 20px 0; padding: 0 15px;">
+    <input type="text" id="searchInput" placeholder="Search hotels, shopping items, cafes..." onkeyup="filterItems()" style="width: 100%; max-width: 500px; padding: 12px 15px; font-size: 16px; border: 2px solid #0071c2; border-radius: 25px; outline: none; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
+</div>
+
+<!-- Items Container (Jahan search karne par ya default items dikhenge) -->
+<div id="itemsContainer" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; padding: 20px; max-width: 1200px; margin: 0 auto;">
+    <!-- Yeh JavaScript ke through automatically fill hoga -->
+</div>
+
+<!-- Booking & Detail Modal -->
+<dialog id="bookingModal" style="padding: 25px; border-radius: 12px; border: none; box-shadow: 0 4px 25px rgba(0,0,0,0.15); max-width: 420px; width: 90%;">
+    <h3 id="modalTitle" style="margin-bottom: 15px; color: #0071c2; font-size: 20px;">Book / Order</h3>
+    <p id="itemDesc" style="font-size: 14px; color: #555; margin-bottom: 15px;"></p>
+    
+    <form id="bookingForm" onsubmit="handleDirectSubmission(event)">
+        <div style="margin-bottom: 12px;">
+            <label style="font-size: 14px; display: block; margin-bottom: 5px; font-weight: bold;">Full Name:</label>
+            <input type="text" id="userName" required style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 6px;">
+        </div>
+        <div style="margin-bottom: 12px;">
+            <label style="font-size: 14px; display: block; margin-bottom: 5px; font-weight: bold;">Mobile Number:</label>
+            <input type="tel" id="userPhone" required style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 6px;">
+        </div>
+        <div style="margin-bottom: 20px;">
+            <label style="font-size: 14px; display: block; margin-bottom: 5px; font-weight: bold;">Date / Schedule:</label>
+            <input type="date" id="checkInDate" required style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 6px;">
+        </div>
+        <div style="display: flex; justify-content: flex-end; gap: 10px;">
+            <button type="button" onclick="closeModal()" style="padding: 10px 16px; background: #e0e0e0; border: none; border-radius: 6px; cursor: pointer; font-weight: bold;">Cancel</button>
+            <button type="submit" style="padding: 10px 16px; background: #0071c2; color: white; border: none; border-radius: 6px; cursor: pointer; font-weight: bold;">Confirm Booking</button>
+        </div>
+    </form>
+</dialog>
+
+<!-- JavaScript for Dynamic Listing & Live Search -->
+<script>
+    // Aapke saare items (Hotels, Shopping, etc.) yahan asani se add ya update kiye ja sakte hain
+    const allItems = [
+        {
+            category: "hotel",
+            name: "Snow Peak View Resort, Shimla",
+            image: "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=500&q=80",
+            description: "Luxurious rooms with panoramic mountain views, free Wi-Fi, and top-tier hospitality."
+        },
+        {
+            category: "hotel",
+            name: "Pine Forest Valley Hotel",
+            image: "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=500&q=80",
+            description: "Surrounded by pine trees, perfect for a peaceful and cozy stay in nature."
+        },
+        {
+            category: "shopping",
+            name: "Himalayan Trekking Backpack",
+            image: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=500&q=80",
+            description: "Waterproof, durable, and spacious backpack built for rough mountain trails."
+        },
+        {
+            category: "shopping",
+            name: "All-Terrain Trekking Shoes",
+            image: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=500&q=80",
+            description: "High grip, anti-slip shoes designed specifically for rocky and snowy terrains."
+        },
+        {
+            category: "business",
+            name: "Hills Brew & Cafe",
+            image: "https://images.unsplash.com/photo-1555396273-3674e4cb45?auto=format&fit=crop&w=500&q=80",
+            description: "Enjoy authentic local pahadi snacks, organic coffee, and a cozy aesthetic ambiance."
+        }
+    ];
+
+    let currentItem = "";
+
+    // Items ko screen par display karne ka function
+    function displayItems(items) {
+        const container = document.getElementById('itemsContainer');
+        container.innerHTML = "";
+
+        if (items.length === 0) {
+            container.innerHTML = <p style="grid-column: 1/-1; text-align: center; color: #777; font-size: 16px;">No items found matching your search.</p>;
+            return;
+        }
+
+        items.forEach(item => {
+            const card = document.createElement('div');
+            card.className = "card";
+            card.style.cssText = "background: #fff; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.08); display: flex; flex-direction: column;";
+            
+            card.innerHTML = `
+                <img src="${item.image}" alt="${item.name}" style="width: 100%; height: 180px; object-fit: cover;">
+                <div style="padding: 15px; display: flex; flex-direction: column; flex-grow: 1;">
+                    <h3 style="font-size: 18px; margin-bottom: 8px; color: #333;">${item.name}</h3>
+                    <p style="font-size: 13px; color: #666; margin-bottom: 15px; flex-grow: 1;">${item.description}</p>
+                    <button onclick="openModal('${item.name}', '${item.description}')" class="btn" style="background: #0071c2; color: white; padding: 10px; border: none; border-radius: 6px; cursor: pointer; font-weight: bold; width: 100%;">Book / Buy Now</button>
+                </div>
+            `;
+            container.appendChild(card);
+        });
+    }
+
+    // Live Search Filter Function
+    function filterItems() {
+        const query = document.getElementById('searchInput').value.toLowerCase();
+        const filtered = allItems.filter(item => 
+            item.name.toLowerCase().includes(query) || 
+            item.description.toLowerCase().includes(query) ||
+            item.category.toLowerCase().includes(query)
+        );
+        displayItems(filtered);
+    }
+
+    // Modal Open/Close Controls
+    function openModal(itemName, itemDesc) {
+        currentItem = itemName;
+        document.getElementById('modalTitle').innerText = "Book / Order: " + itemName;
+        document.getElementById('itemDesc').innerText = itemDesc;
+        document.getElementById('bookingModal').showModal();
+    }
+
+    function closeModal() {
+        document.getElementById('bookingModal').close();
+    }
+
+    // Direct Data Save (Local Storage)
+    function handleDirectSubmission(event) {
+        event.preventDefault();
+        let name = document.getElementById('userName').value;
+        let phone = document.getElementById('userPhone').value;
+        let date = document.getElementById('checkInDate').value;
+        
+        let orders = JSON.parse(localStorage.getItem('himalayanGoOrders') || '[]');
+        orders.push({
+            item: currentItem,
+            customerName: name,
+            customerPhone: phone,
+            bookingDate: date,
+            timestamp: new Date().toLocaleString()
+        });
+        localStorage.setItem('himalayanGoOrders', JSON.stringify(orders));
+
+        alert("Success! Aapki request HimalayanGo par securely record ho chuki hai.");
+        closeModal();
+        document.getElementById('bookingForm').reset();
+    }
+
+    // Page load hote hi saare items dikhana
+    window.onload = function() {
+        displayItems(allItems);
+    };
+</script>
 
 </body>
 </html>
