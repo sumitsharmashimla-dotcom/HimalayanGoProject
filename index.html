@@ -46,7 +46,7 @@
         /* Hero & Search Section */
         .hero {
             text-align: center;
-            padding: 40px 20px 20px 20px;
+            padding: 40px 20px;
             background: linear-gradient(135deg, #0071c2, #004d80);
             color: white;
         }
@@ -147,7 +147,7 @@
         <input type="text" id="searchInput" class="search-box" placeholder="Search hotels, trekking gear, cafes..." onkeyup="filterItems()">
     </div>
 
-    <!-- Dynamic Items Section -->
+    <!-- Dynamic Items Section (Yeh container sabse pehle hona chahiye) -->
     <div class="container">
         <div id="itemsContainer" class="grid">
             <!-- JavaScript will populate items here dynamically -->
@@ -179,7 +179,7 @@
         </form>
     </dialog>
 
-    <!-- JavaScript Data & Logic -->
+    <!-- JavaScript Data & Logic (Script hamesha HTML container ke baad aakhir mein hoti hai) -->
     <script>
         const allItems = [
             {
@@ -292,7 +292,7 @@
             document.getElementById('bookingForm').reset();
         }
 
-        // Load all items immediately
+        // Direct function call on page load
         displayItems(allItems);
     </script>
 </body>
