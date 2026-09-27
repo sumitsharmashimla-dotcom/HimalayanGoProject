@@ -2,461 +2,49 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>HimalayanGo | Explore, Book & Discover</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>HimalayanGo — Travel, Bills & Local Business</title>
 <style>
-:root{
-  --green:#087f5b;--green2:#0ca678;--dark:#073b33;--text:#17202a;
-  --muted:#667085;--bg:#f5f7fa;--card:#fff;--line:#e5e7eb;--gold:#f59f00;
-}
-*{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{font-family:Arial,Helvetica,sans-serif;background:var(--bg);color:var(--text)}
-button,input,select,textarea{font:inherit}
-button{cursor:pointer}
-a{text-decoration:none;color:inherit}
-.hidden{display:none!important}
-
-/* HEADER */
-header{height:72px;background:rgba(255,255,255,.96);backdrop-filter:blur(12px);
-position:sticky;top:0;z-index:1000;border-bottom:1px solid var(--line);
-display:flex;align-items:center;justify-content:space-between;padding:0 6%}
-.logo{display:flex;align-items:center;gap:10px;color:var(--green);font-weight:800;font-size:23px}
-.logoIcon{width:40px;height:40px;border-radius:12px;background:linear-gradient(135deg,var(--green2),var(--green));
-display:grid;place-items:center;color:#fff}
-.nav{display:flex;align-items:center;gap:22px}
-.nav a,.nav button{border:0;background:none;color:#475467;font-weight:600;font-size:14px}
-.nav a:hover,.nav button:hover{color:var(--green)}
-.accountBtn{background:var(--green)!important;color:#fff!important;padding:11px 16px;border-radius:9px}
-.mobileMenu{display:none}
-
-/* HERO */
-.hero{min-height:520px;padding:70px 7%;display:flex;align-items:center;color:#fff;
-background:linear-gradient(90deg,rgba(3,39,32,.9),rgba(3,39,32,.48),rgba(3,39,32,.12)),
-url("https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=1800&q=85") center/cover}
-.heroContent{max-width:720px}
-.badge{display:inline-block;padding:8px 14px;border:1px solid rgba(255,255,255,.3);background:rgba(255,255,255,.13);
-border-radius:30px;font-size:13px;margin-bottom:20px}
-.hero h1{font-size:56px;line-height:1.05;margin-bottom:18px}
-.hero h1 span{color:#63e6be}
-.hero p{font-size:17px;line-height:1.6;color:#e4f5ef;margin-bottom:28px}
-.search{display:flex;max-width:680px;background:#fff;padding:7px;border-radius:14px;box-shadow:0 15px 45px rgba(0,0,0,.25)}
-.search input{flex:1;border:0;outline:0;padding:14px;font-size:15px}
-.primary{border:0;background:var(--green);color:#fff;padding:12px 19px;border-radius:9px;font-weight:700}
-.primary:hover{background:#066c4d}
-
-/* QUICK */
-.quick{max-width:1200px;margin:-42px auto 0;padding:0 20px;position:relative;z-index:5}
-.quickGrid{display:grid;grid-template-columns:repeat(5,1fr);gap:13px}
-.quickCard{background:#fff;border-radius:15px;padding:20px 10px;text-align:center;box-shadow:0 8px 30px rgba(0,0,0,.08);
-border:1px solid #f0f1f2;transition:.2s}
-.quickCard:hover{transform:translateY(-5px)}
-.quickIcon{width:48px;height:48px;margin:0 auto 9px;border-radius:13px;background:#e8f8f2;display:grid;place-items:center;font-size:24px}
-.quickCard strong{font-size:14px;display:block}.quickCard small{color:#7b8490}
-
-/* SECTIONS */
-.section{max-width:1200px;margin:auto;padding:75px 20px}
-.heading{display:flex;justify-content:space-between;align-items:end;margin-bottom:28px}
-.heading h2{font-size:31px}.heading p{color:var(--muted);margin-top:7px}
-.linkBtn{border:0;background:none;color:var(--green);font-weight:700}
-
-/* CARDS */
-.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:23px}
-.card{background:#fff;border-radius:17px;overflow:hidden;box-shadow:0 5px 25px rgba(0,0,0,.07);transition:.25s}
-.card:hover{transform:translateY(-5px);box-shadow:0 14px 35px rgba(0,0,0,.12)}
-.cardImg{height:210px;width:100%;object-fit:cover;display:block}
-.cardBody{padding:18px}.row{display:flex;justify-content:space-between;align-items:center}
-.tag{font-size:11px;text-transform:uppercase;color:var(--green);font-weight:800}
-.rating{background:#fff4d6;color:#9a6700;padding:5px 8px;border-radius:7px;font-size:12px;font-weight:700}
-.card h3{font-size:19px;margin:10px 0 7px}.location{font-size:13px;color:#748091;margin-bottom:11px}
-.desc{font-size:13px;line-height:1.5;color:var(--muted);margin-bottom:17px}
-.price{font-weight:800;font-size:17px}.price span{font-size:12px;color:#8a93a0;font-weight:400}
-.outline{border:1px solid var(--green);background:#fff;color:var(--green);padding:10px 14px;border-radius:8px;font-weight:700}
-.outline:hover{background:#e8f8f2}
-
-/* BUSINESS */
-.businessSection{background:#fff}
-.businessGrid{display:grid;grid-template-columns:repeat(4,1fr);gap:17px}
-.business{border:1px solid var(--line);border-radius:15px;padding:20px;background:#fff}
-.businessIcon{font-size:30px;margin-bottom:13px}.business h3{font-size:17px;margin-bottom:7px}.business p{font-size:13px;color:var(--muted);line-height:1.5}
-
-/* ACCOUNT AREA */
-.accountSection{max-width:1200px;margin:auto;padding:45px 20px 80px}
-.panel{background:#fff;border:1px solid var(--line);border-radius:18px;padding:25px;box-shadow:0 5px 20px rgba(0,0,0,.04)}
-.tabs{display:flex;gap:10px;border-bottom:1px solid var(--line);padding-bottom:12px;margin-bottom:20px;overflow:auto}
-.tab{border:0;background:#f2f4f7;padding:10px 15px;border-radius:8px;white-space:nowrap;font-weight:700;color:#475467}
-.tab.active{background:var(--green);color:#fff}
-.bookingList{display:grid;gap:12px}.bookingItem{border:1px solid var(--line);border-radius:12px;padding:15px;display:flex;justify-content:space-between;gap:15px}
-.status{color:#087f5b;background:#e8f8f2;padding:5px 8px;border-radius:6px;font-size:12px;font-weight:700}
-.empty{text-align:center;color:var(--muted);padding:35px}
-
-/* MODALS */
-.modal{position:fixed;inset:0;background:rgba(0,0,0,.65);z-index:5000;display:none;align-items:center;justify-content:center;padding:18px}
-.modal.active{display:flex}
-.modalBox{width:100%;max-width:470px;background:#fff;border-radius:18px;padding:27px;max-height:90vh;overflow:auto}
-.modalBox.large{max-width:700px}.modalHead{display:flex;justify-content:space-between;align-items:start;margin-bottom:18px}
-.modalHead h2{color:var(--green);font-size:24px}.close{border:0;background:#f2f4f7;width:34px;height:34px;border-radius:50%;font-size:18px}
-.formGroup{margin-bottom:14px}.formGroup label{display:block;font-size:13px;font-weight:700;margin-bottom:6px}
-.formGroup input,.formGroup select,.formGroup textarea{width:100%;padding:12px;border:1px solid #d9dee5;border-radius:8px;outline:0;background:#fff}
-.formGroup textarea{min-height:90px;resize:vertical}
-.formGroup input:focus,.formGroup select:focus,.formGroup textarea:focus{border-color:var(--green)}
-.formGrid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.modalActions{display:flex;gap:10px;margin-top:18px}.cancel{flex:1;border:0;background:#e9ecef;padding:12px;border-radius:8px;font-weight:700}.confirm{flex:1;border:0;background:var(--green);color:#fff;padding:12px;border-radius:8px;font-weight:700}
-.authSwitch{text-align:center;margin-top:15px;font-size:13px;color:var(--muted)}.authSwitch button{border:0;background:none;color:var(--green);font-weight:700}
-
-/* HOTEL DETAILS */
-.detailHero{height:260px;border-radius:15px;background-size:cover;background-position:center;margin-bottom:20px}
-.detailGrid{display:grid;grid-template-columns:1.5fr .8fr;gap:25px}.detailCard{background:#fff;border-radius:15px;padding:22px;border:1px solid var(--line)}
-.detailCard h2{margin-bottom:8px}.detailMeta{color:var(--muted);font-size:14px;margin-bottom:15px;line-height:1.7}
-.featureList{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:17px 0}.feature{background:#f8fafb;padding:10px;border-radius:8px;font-size:13px}
-.detailPrice{font-size:28px;font-weight:800;color:var(--green)}.detailPrice span{font-size:13px;color:var(--muted);font-weight:400}
-
-/* FOOTER */
-footer{background:#062d25;color:#fff;padding:50px 7% 22px}
-.footerGrid{max-width:1200px;margin:auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:35px}
-.footerLogo{font-size:22px;font-weight:800;margin-bottom:12px}.footerAbout,footer a{color:#b8d1ca;font-size:13px;line-height:1.7}
-footer h4{margin-bottom:13px}footer a{display:block;margin-bottom:8px}.copyright{max-width:1200px;margin:30px auto 0;padding-top:18px;border-top:1px solid rgba(255,255,255,.12);color:#91aaa3;font-size:12px}
-
-/* TOAST */
-.toast{position:fixed;right:20px;bottom:20px;z-index:7000;background:#073b33;color:#fff;padding:14px 18px;border-radius:10px;box-shadow:0 10px 30px rgba(0,0,0,.2);display:none;max-width:340px}.toast.show{display:block}
-
-/* RESPONSIVE */
-@media(max-width:900px){
-  .hero h1{font-size:43px}.quickGrid{grid-template-columns:repeat(3,1fr)}
-  .cards{grid-template-columns:repeat(2,1fr)}.businessGrid{grid-template-columns:repeat(2,1fr)}
-  .detailGrid{grid-template-columns:1fr}.footerGrid{grid-template-columns:repeat(2,1fr)}
-}
-@media(max-width:650px){
-  header{height:auto;padding:13px 18px;gap:12px;flex-wrap:wrap}.nav{gap:12px}.nav a{font-size:12px}.accountBtn{display:none}
-  .hero{min-height:500px;padding:55px 20px}.hero h1{font-size:36px}.hero p{font-size:15px}
-  .search{flex-direction:column;background:transparent;box-shadow:none;padding:0;gap:8px}.search input{border-radius:9px}.search .primary{padding:13px}
-  .quick{margin:-25px 10px 0}.quickGrid{grid-template-columns:repeat(2,1fr)}
-  .section{padding:55px 18px}.heading{align-items:start;flex-direction:column;gap:8px}.cards{grid-template-columns:1fr}
-  .businessGrid{grid-template-columns:1fr}.formGrid{grid-template-columns:1fr}.footerGrid{grid-template-columns:1fr}
-  .detailHero{height:210px}
-}
+*{box-sizing:border-box}body{margin:0;font-family:Arial,sans-serif;background:#f5f8fb;color:#17202a}
+header{background:#fff;display:flex;align-items:center;justify-content:space-between;padding:15px 5%;box-shadow:0 2px 12px #00000012;position:sticky;top:0;z-index:5}
+.logo{font-size:23px;font-weight:800;color:#0877bd}.logo span{color:#1f9d55}
+nav{display:flex;gap:18px;flex-wrap:wrap}nav a{text-decoration:none;color:#46515c;font-weight:600;font-size:14px}nav a:hover{color:#0877bd}
+.hero{padding:55px 5%;background:linear-gradient(135deg,#e8f6ff,#fff)}.hero h1{font-size:42px;margin:0 0 12px}.hero p{max-width:700px;color:#5d6975;line-height:1.6}
+.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:22px}.btn{border:0;border-radius:10px;padding:12px 18px;background:#0877bd;color:white;text-decoration:none;font-weight:700;cursor:pointer}.btn.alt{background:#1f9d55}
+.container{max-width:1200px;margin:auto;padding:35px 5%}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:18px}.card{background:#fff;border-radius:15px;padding:22px;box-shadow:0 5px 18px #0000000b}.card h3{margin:8px 0}.icon{font-size:30px}.muted{color:#697581;font-size:14px;line-height:1.5}
+footer{margin-top:35px;background:#17202a;color:#fff;padding:30px 5%;text-align:center}
+@media(max-width:650px){header{align-items:flex-start;gap:10px;flex-direction:column}.hero h1{font-size:31px}}
 </style>
 </head>
 <body>
-
 <header>
-  <a class="logo" href="#" onclick="showHome()"><span class="logoIcon">🏔️</span>HimalayanGo</a>
-  <nav class="nav">
-    <a href="#hotels">Hotels</a>
-    <a href="#business">Local Business</a>
-    <a href="#account" onclick="showAccount()">My Bookings</a>
-    <button class="accountBtn" onclick="openAuth()">Login / Register</button>
+  <div class="logo">🏔️ HimalayanGo <span>Go Local. Go Anywhere.</span></div>
+  <nav>
+    <a href="index.html">Home</a><a href="recharge.html">Bills & Recharge</a>
+    <a href="shopping.html">Shopping</a><a href="local-business.html">Local Business</a>
   </nav>
 </header>
 
-<main id="homeView">
 <section class="hero">
-  <div class="heroContent">
-    <div class="badge">🏔️ Discover Himachal Pradesh</div>
-    <h1>Explore Himachal. <span>Book Local.</span></h1>
-    <p>Find hotels, cafes, local shops, travel services and Himalayan experiences — all in one place.</p>
-    <div class="search">
-      <input id="searchInput" placeholder="Search hotels, cafes, trekking, shops..." onkeydown="if(event.key==='Enter')searchHotels()">
-      <button class="primary" onclick="searchHotels()">🔍 Search</button>
-    </div>
+  <h1>One place for your Himalayan journey.</h1>
+  <p>Travel services, mobile recharge, utility payments, travel gear and local Himachali businesses — all under HimalayanGo.</p>
+  <div class="actions">
+    <a class="btn" href="recharge.html">Bills & Recharge</a>
+    <a class="btn alt" href="local-business.html">Explore Local Business</a>
   </div>
 </section>
 
-<section class="quick">
-  <div class="quickGrid">
-    <div class="quickCard" onclick="scrollToId('hotels')"><div class="quickIcon">🏨</div><strong>Hotels</strong><small>Stay & Relax</small></div>
-    <div class="quickCard" onclick="showToast('Travel booking will be connected in the API stage.')"><div class="quickIcon">🚌</div><strong>Travel</strong><small>Bus & Taxi</small></div>
-    <div class="quickCard" onclick="scrollToId('business')"><div class="quickIcon">🍽️</div><strong>Food</strong><small>Restaurants</small></div>
-    <div class="quickCard" onclick="scrollToId('business')"><div class="quickIcon">🛍️</div><strong>Shopping</strong><small>Local Products</small></div>
-    <div class="quickCard" onclick="showToast('Experiences marketplace can be added next.')"><div class="quickIcon">🏔️</div><strong>Experiences</strong><small>Explore Himachal</small></div>
-  </div>
-</section>
-
-<section class="section" id="hotels">
-  <div class="heading">
-    <div><h2>Popular Places to Stay</h2><p>Discover beautiful stays across Himachal.</p></div>
-    <button class="linkBtn" onclick="renderHotels(hotels)">View All →</button>
-  </div>
-  <div class="cards" id="hotelCards"></div>
-</section>
-
-<section class="businessSection" id="business">
-  <div class="section">
-    <div class="heading">
-      <div><h2>Discover Local Businesses</h2><p>Connect travellers with local businesses and services.</p></div>
-      <button class="linkBtn" onclick="openBusiness()">List Your Business →</button>
-    </div>
-    <div class="businessGrid">
-      <div class="business"><div class="businessIcon">☕</div><h3>Mountain Cafes</h3><p>Discover coffee, pahadi food and beautiful views.</p></div>
-      <div class="business"><div class="businessIcon">🛍️</div><h3>Local Shops</h3><p>Find authentic Himachali products and shopping.</p></div>
-      <div class="business"><div class="businessIcon">🥾</div><h3>Trekking</h3><p>Connect with guides, equipment and adventure services.</p></div>
-      <div class="business"><div class="businessIcon">🚕</div><h3>Local Taxi</h3><p>Find local transport providers for your trip.</p></div>
-    </div>
-  </div>
-</section>
-
-<section class="accountSection" id="account">
-  <div class="panel">
-    <div class="tabs">
-      <button class="tab active" id="tabBookings" onclick="showAccountTab('bookings')">My Bookings</button>
-      <button class="tab" id="tabProfile" onclick="showAccountTab('profile')">My Profile</button>
-      <button class="tab" onclick="openBusiness()">Business Registration</button>
-    </div>
-    <div id="accountContent"></div>
-  </div>
-</section>
+<main class="container">
+<h2>HimalayanGo Services</h2>
+<div class="grid">
+  <div class="card"><div class="icon">📱</div><h3>Mobile Recharge</h3><p class="muted">Connect the frontend to your backend recharge route and authorised provider.</p><a class="btn" href="recharge.html">Open</a></div>
+  <div class="card"><div class="icon">💡</div><h3>Utility Bills</h3><p class="muted">Electricity, DTH and other supported services can be routed through an authorised bill-payment provider.</p><a class="btn" href="recharge.html">Open</a></div>
+  <div class="card"><div class="icon">✈️</div><h3>Travel</h3><p class="muted">Travel UI is ready; connect a genuine flight/bus/hotel API before accepting live bookings.</p><a class="btn" href="recharge.html">Open</a></div>
+  <div class="card"><div class="icon">🏪</div><h3>Local Business</h3><p class="muted">List cafes, homestays, shops, taxis, handicrafts and local services.</p><a class="btn alt" href="local-business.html">Explore</a></div>
+  <div class="card"><div class="icon">🛍️</div><h3>Shopping</h3><p class="muted">Show travel gear and connect Buy Now buttons to your chosen commerce/affiliate checkout.</p><a class="btn" href="shopping.html">Shop</a></div>
+  <div class="card"><div class="icon">🧾</div><h3>Booking History</h3><p class="muted">A real history/account system needs a database and authenticated backend.</p></div>
+</div>
 </main>
-
-<section class="section hidden" id="hotelDetailView">
-  <button class="linkBtn" onclick="showHome()">← Back to HimalayanGo</button>
-  <div id="hotelDetail"></div>
-</section>
-
-<footer>
-  <div class="footerGrid">
-    <div><div class="footerLogo">🏔️ HimalayanGo</div><p class="footerAbout">Your direct gateway to Himachal — stays, local businesses, travel and Himalayan experiences.</p></div>
-    <div><h4>Explore</h4><a href="#hotels">Hotels</a><a href="#business">Local Business</a><a href="#account">My Bookings</a></div>
-    <div><h4>Partners</h4><a href="#" onclick="openBusiness()">Register Business</a><a href="#">Partner Login</a><a href="#">Help</a></div>
-    <div><h4>HimalayanGo</h4><a href="#">About</a><a href="#">Contact</a><a href="#">Terms</a></div>
-  </div>
-  <div class="copyright">© 2026 HimalayanGo. All rights reserved.</div>
-</footer>
-
-<!-- AUTH MODAL -->
-<div class="modal" id="authModal">
-  <div class="modalBox">
-    <div class="modalHead"><h2 id="authTitle">Login</h2><button class="close" onclick="closeModal('authModal')">×</button></div>
-    <form id="authForm">
-      <div class="formGroup"><label>Full Name</label><input id="authName" placeholder="Your name"></div>
-      <div class="formGroup"><label>Mobile Number</label><input id="authPhone" maxlength="10" placeholder="10 digit mobile number" required></div>
-      <div class="formGroup"><label>Email</label><input id="authEmail" type="email" placeholder="you@example.com"></div>
-      <div class="formGroup"><label>Password</label><input id="authPassword" type="password" minlength="6" placeholder="Minimum 6 characters" required></div>
-      <button class="primary" style="width:100%" type="submit" id="authSubmit">Login</button>
-    </form>
-    <div class="authSwitch"><span id="authSwitchText">New to HimalayanGo?</span> <button onclick="toggleAuth()">Create account</button></div>
-  </div>
-</div>
-
-<!-- BOOKING MODAL -->
-<div class="modal" id="bookingModal">
-  <div class="modalBox">
-    <div class="modalHead"><h2>Book Your Stay</h2><button class="close" onclick="closeModal('bookingModal')">×</button></div>
-    <p id="bookingHotel" style="font-weight:700;margin-bottom:18px"></p>
-    <form id="bookingForm">
-      <div class="formGrid">
-        <div class="formGroup"><label>Check-in</label><input id="checkIn" type="date" required></div>
-        <div class="formGroup"><label>Check-out</label><input id="checkOut" type="date" required></div>
-      </div>
-      <div class="formGrid">
-        <div class="formGroup"><label>Guests</label><select id="guests"><option>1 Guest</option><option>2 Guests</option><option>3 Guests</option><option>4 Guests</option><option>5+ Guests</option></select></div>
-        <div class="formGroup"><label>Mobile</label><input id="bookingPhone" maxlength="10" required placeholder="10 digit number"></div>
-      </div>
-      <div class="formGroup"><label>Special Request (optional)</label><textarea id="specialRequest" placeholder="Anything you want us to know?"></textarea></div>
-      <div class="modalActions"><button type="button" class="cancel" onclick="closeModal('bookingModal')">Cancel</button><button class="confirm" type="submit">Confirm Booking</button></div>
-    </form>
-  </div>
-</div>
-
-<!-- BUSINESS MODAL -->
-<div class="modal" id="businessModal">
-  <div class="modalBox large">
-    <div class="modalHead"><h2>Register Your Business</h2><button class="close" onclick="closeModal('businessModal')">×</button></div>
-    <p style="color:#667085;font-size:13px;margin-bottom:18px">Add your hotel, cafe, shop, taxi or local service to HimalayanGo.</p>
-    <form id="businessForm">
-      <div class="formGrid">
-        <div class="formGroup"><label>Business Name</label><input id="bizName" required placeholder="Business name"></div>
-        <div class="formGroup"><label>Category</label><select id="bizCategory" required><option value="">Select</option><option>Hotel / Resort</option><option>Cafe / Restaurant</option><option>Local Shop</option><option>Taxi / Travel</option><option>Trekking / Adventure</option><option>Other Service</option></select></div>
-      </div>
-      <div class="formGrid">
-        <div class="formGroup"><label>Owner Name</label><input id="bizOwner" required></div>
-        <div class="formGroup"><label>Mobile Number</label><input id="bizPhone" maxlength="10" required></div>
-      </div>
-      <div class="formGrid">
-        <div class="formGroup"><label>City / Location</label><input id="bizLocation" required placeholder="e.g. Shimla"></div>
-        <div class="formGroup"><label>Email</label><input id="bizEmail" type="email"></div>
-      </div>
-      <div class="formGroup"><label>Business Description</label><textarea id="bizDescription" required placeholder="Tell customers about your business"></textarea></div>
-      <div class="modalActions"><button type="button" class="cancel" onclick="closeModal('businessModal')">Cancel</button><button class="confirm" type="submit">Submit Registration</button></div>
-    </form>
-  </div>
-</div>
-
-<div class="toast" id="toast"></div>
-
-<script>
-const hotels = [
-  {id:1,name:"Snow Peak View Resort",city:"Shimla",rating:"4.8",price:2999,
-   image:"https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1000&q=85",
-   desc:"Beautiful mountain-view rooms with peaceful surroundings and modern facilities.",
-   features:["Mountain View","Free Wi-Fi","Breakfast","Parking"]},
-  {id:2,name:"Pine Forest Valley",city:"Manali",rating:"4.7",price:2499,
-   image:"https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=1000&q=85",
-   desc:"A peaceful stay surrounded by pine forests with beautiful Himalayan views.",
-   features:["Pine Forest","Wi-Fi","Room Service","Parking"]},
-  {id:3,name:"Himalayan Valley Resort",city:"Kullu",rating:"4.9",price:3499,
-   image:"https://images.unsplash.com/photo-1544986581-efac024faf62?auto=format&fit=crop&w=1000&q=85",
-   desc:"Comfortable rooms, mountain views and a relaxing escape from city life.",
-   features:["Valley View","Restaurant","Wi-Fi","Parking"]}
-];
-
-let selectedHotel=null;
-let authMode="login";
-
-function renderHotels(list){
-  const box=document.getElementById("hotelCards");
-  box.innerHTML="";
-  if(!list.length){box.innerHTML='<div class="empty" style="grid-column:1/-1">No matching hotels found.</div>';return;}
-  list.forEach(h=>{
-    box.innerHTML+=`
-      <article class="card">
-        <img class="cardImg" src="${h.image}" alt="${h.name}" onerror="this.src='https://via.placeholder.com/900x500?text=HimalayanGo'">
-        <div class="cardBody">
-          <div class="row"><span class="tag">Hotel / Resort</span><span class="rating">★ ${h.rating}</span></div>
-          <h3>${h.name}</h3><div class="location">📍 ${h.city}, Himachal Pradesh</div>
-          <p class="desc">${h.desc}</p>
-          <div class="row"><div class="price">₹${h.price.toLocaleString()} <span>/ night</span></div>
-          <button class="outline" onclick="viewHotel(${h.id})">View Details</button></div>
-        </div>
-      </article>`;
-  });
-}
-
-function searchHotels(){
-  const q=document.getElementById("searchInput").value.toLowerCase().trim();
-  renderHotels(hotels.filter(h=>(h.name+" "+h.city+" "+h.desc).toLowerCase().includes(q)));
-  scrollToId("hotels");
-}
-
-function viewHotel(id){
-  const h=hotels.find(x=>x.id===id); if(!h)return;
-  selectedHotel=h;
-  document.getElementById("homeView").classList.add("hidden");
-  document.getElementById("hotelDetailView").classList.remove("hidden");
-  document.getElementById("hotelDetail").innerHTML=`
-    <div class="detailHero" style="background-image:url('${h.image}')"></div>
-    <div class="detailGrid">
-      <div class="detailCard">
-        <div class="row"><span class="tag">Hotel / Resort</span><span class="rating">★ ${h.rating}</span></div>
-        <h2>${h.name}</h2>
-        <div class="detailMeta">📍 ${h.city}, Himachal Pradesh<br>${h.desc}</div>
-        <h3>Facilities</h3>
-        <div class="featureList">${h.features.map(f=>`<div class="feature">✓ ${f}</div>`).join("")}</div>
-        <p style="color:#667085;font-size:13px;line-height:1.6">This demo listing is ready for real hotel inventory/API integration later.</p>
-      </div>
-      <div class="detailCard">
-        <div style="color:#667085;font-size:13px">Starting from</div>
-        <div class="detailPrice">₹${h.price.toLocaleString()} <span>/ night</span></div>
-        <button class="primary" style="width:100%;margin-top:18px" onclick="openBooking(${h.id})">Book Now</button>
-      </div>
-    </div>`;
-  window.scrollTo({top:0,behavior:"smooth"});
-}
-
-function showHome(){
-  document.getElementById("hotelDetailView").classList.add("hidden");
-  document.getElementById("homeView").classList.remove("hidden");
-  renderHotels(hotels);
-}
-
-function openBooking(id){
-  selectedHotel=hotels.find(x=>x.id===id);
-  if(!selectedHotel)return;
-  document.getElementById("bookingHotel").textContent=selectedHotel.name+" • "+selectedHotel.city;
-  const today=new Date().toISOString().split("T")[0];
-  document.getElementById("checkIn").min=today;
-  document.getElementById("checkOut").min=today;
-  document.getElementById("bookingModal").classList.add("active");
-}
-
-document.getElementById("bookingForm").addEventListener("submit",e=>{
-  e.preventDefault();
-  const phone=document.getElementById("bookingPhone").value.trim();
-  if(!/^\d{10}$/.test(phone)){showToast("Please enter a valid 10 digit mobile number.");return;}
-  const bookings=JSON.parse(localStorage.getItem("himalayanGoBookings")||"[]");
-  bookings.push({
-    id:"HG"+Date.now(),hotelId:selectedHotel.id,hotel:selectedHotel.name,city:selectedHotel.city,
-    checkIn:document.getElementById("checkIn").value,checkOut:document.getElementById("checkOut").value,
-    guests:document.getElementById("guests").value,phone,specialRequest:document.getElementById("specialRequest").value,
-    status:"Request Submitted",createdAt:new Date().toLocaleString()
-  });
-  localStorage.setItem("himalayanGoBookings",JSON.stringify(bookings));
-  closeModal("bookingModal"); e.target.reset(); showAccountTab("bookings"); scrollToId("account");
-  showToast("Booking request saved successfully.");
-});
-
-function openAuth(){document.getElementById("authModal").classList.add("active");setAuthMode("login");}
-function toggleAuth(){setAuthMode(authMode==="login"?"register":"login");}
-function setAuthMode(mode){
-  authMode=mode;
-  const register=mode==="register";
-  document.getElementById("authTitle").textContent=register?"Create Account":"Login";
-  document.getElementById("authName").required=register;
-  document.getElementById("authEmail").required=register;
-  document.getElementById("authSubmit").textContent=register?"Create Account":"Login";
-  document.getElementById("authSwitchText").textContent=register?"Already have an account?":"New to HimalayanGo?";
-  document.querySelector("#authModal .authSwitch button").textContent=register?"Login":"Create account";
-}
-document.getElementById("authForm").addEventListener("submit",e=>{
-  e.preventDefault();
-  const phone=document.getElementById("authPhone").value.trim();
-  if(!/^\d{10}$/.test(phone)){showToast("Please enter a valid 10 digit mobile number.");return;}
-  let user=JSON.parse(localStorage.getItem("himalayanGoUser")||"null");
-  if(authMode==="register"){
-    user={name:document.getElementById("authName").value.trim(),phone,email:document.getElementById("authEmail").value.trim()};
-    localStorage.setItem("himalayanGoUser",JSON.stringify(user));
-    showToast("Account created successfully.");
-  }else{
-    if(!user || user.phone!==phone){showToast("Demo login: first create an account using this mobile number.");return;}
-    showToast("Welcome back, "+user.name+"!");
-  }
-  closeModal("authModal"); showAccountTab("profile"); scrollToId("account");
-});
-
-function showAccount(){
-  scrollToId("account");showAccountTab("bookings");
-}
-function showAccountTab(tab){
-  document.querySelectorAll(".tab").forEach(x=>x.classList.remove("active"));
-  if(tab==="bookings")document.getElementById("tabBookings").classList.add("active");
-  if(tab==="profile")document.getElementById("tabProfile").classList.add("active");
-  const box=document.getElementById("accountContent");
-  if(tab==="profile"){
-    const u=JSON.parse(localStorage.getItem("himalayanGoUser")||"null");
-    box.innerHTML=u?`<h3>My Profile</h3><p style="margin-top:12px;color:#667085">Name: <b>${escapeHtml(u.name)}</b></p><p style="color:#667085">Mobile: <b>${escapeHtml(u.phone)}</b></p><p style="color:#667085">Email: <b>${escapeHtml(u.email||"Not added")}</b></p><button class="outline" style="margin-top:18px" onclick="logout()">Log out</button>`
-    :`<div class="empty">You are not logged in.<br><button class="primary" style="margin-top:15px" onclick="openAuth()">Login / Register</button></div>`;
-    return;
-  }
-  const bookings=JSON.parse(localStorage.getItem("himalayanGoBookings")||"[]");
-  if(!bookings.length){box.innerHTML='<div class="empty">📋<br><br>No bookings yet.<br>Choose a hotel and make your first booking.</div>';return;}
-  box.innerHTML=`<h3 style="margin-bottom:14px">Your Booking Requests</h3><div class="bookingList">${bookings.slice().reverse().map(b=>`
-    <div class="bookingItem"><div><strong>${escapeHtml(b.hotel)}</strong><div style="color:#667085;font-size:13px;margin-top:6px">📍 ${escapeHtml(b.city)} • ${escapeHtml(b.checkIn)} → ${escapeHtml(b.checkOut)}</div><div style="color:#667085;font-size:12px;margin-top:5px">Booking ID: ${b.id}</div></div><span class="status">${escapeHtml(b.status)}</span></div>`).join("")}</div>`;
-}
-function logout(){localStorage.removeItem("himalayanGoUser");showAccountTab("profile");showToast("Logged out.");}
-
-function openBusiness(){document.getElementById("businessModal").classList.add("active");}
-document.getElementById("businessForm").addEventListener("submit",e=>{
-  e.preventDefault();
-  const phone=document.getElementById("bizPhone").value.trim();
-  if(!/^\d{10}$/.test(phone)){showToast("Please enter a valid 10 digit mobile number.");return;}
-  const list=JSON.parse(localStorage.getItem("himalayanGoBusinesses")||"[]");
-  list.push({
-    id:"B"+Date.now(),name:document.getElementById("bizName").value.trim(),
-    category:document.getElementById("bizCategory").value,owner:document.getElementById("bizOwner").value.trim(),
-    phone,location:document.getElementById("bizLocation").value.trim(),email:document.getElementById("bizEmail").value.trim(),
-    description:document.getElementById("bizDescription").value.trim(),createdAt:new Date().toLocaleString()
-  });
-  localStorage.setItem("himalayanGoBusinesses",JSON.stringify(list));
-  closeModal("businessModal");e.target.reset();showToast("Business registration submitted successfully.");
-});
-
-function closeModal(id){document.getElementById(id).classList.remove("active");}
-function scrollToId(id){document.getElementById(id)?.scrollIntoView({behavior:"smooth"});}
-function showToast(msg){const t=document.getElementById("toast");t.textContent=msg;t.classList.add("show");clearTimeout(window.toastTimer);window.toastTimer=setTimeout(()=>t.classList.remove("show"),3000);}
-function escapeHtml(s=""){return s.replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[c]));}
-
-document.querySelectorAll(".modal").forEach(m=>m.addEventListener("click",e=>{if(e.target===m)m.classList.remove("active");}));
-renderHotels(hotels);
-showAccountTab("bookings");
-</script>
+<footer>© 2026 HimalayanGo · Travel · Payments · Local Business</footer>
 </body>
 </html>

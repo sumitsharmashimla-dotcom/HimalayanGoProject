@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>HimalayanGo — Bills & Recharge</title>
+<style>
+*{box-sizing:border-box}body{margin:0;font-family:Arial;background:#f4f7fb;color:#17202a}header{background:#fff;padding:16px 5%;display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap;box-shadow:0 2px 10px #0001}.logo{font-size:22px;font-weight:800;color:#0877bd}nav{display:flex;gap:15px;flex-wrap:wrap}nav a{text-decoration:none;color:#555;font-weight:600}.wrap{max-width:560px;margin:40px auto;padding:0 18px}.box{background:#fff;padding:25px;border-radius:16px;box-shadow:0 6px 25px #0000000d}label{font-size:13px;font-weight:700}input,select,button{width:100%;padding:13px;margin:7px 0 15px;border:1px solid #d9e0e7;border-radius:9px}button{background:#0877bd;color:#fff;border:0;font-weight:700;cursor:pointer}.result{background:#111827;color:#d1fae5;border-radius:10px;padding:14px;white-space:pre-wrap;word-break:break-word;min-height:50px}.note{font-size:12px;color:#6b7280;line-height:1.5}
+</style>
+</head>
+<body>
+<header><div class="logo">🏔️ HimalayanGo</div><nav><a href="index.html">Home</a><a href="recharge.html">Bills & Recharge</a><a href="shopping.html">Shopping</a><a href="local-business.html">Local Business</a></nav></header>
+<div class="wrap"><div class="box">
+<h2>Digital Services</h2>
+<p class="note">This form calls your Railway backend. Use provider IDs supplied by your authorised API provider.</p>
+<label>Service</label>
+<select id="service" onchange="toggle()">
+<option value="recharge">Mobile Recharge</option><option value="utility">Utility Bill</option><option value="travel">Travel Request</option>
+</select>
+<label id="targetLabel">Mobile Number</label><input id="target" inputmode="numeric" placeholder="10-digit mobile number">
+<label>Amount</label><input id="amount" type="number" min="1" placeholder="Enter amount">
+<label id="providerLabel">Provider ID</label><input id="provider" placeholder="Provider ID">
+<label id="mobileLabel" style="display:none">Customer Mobile</label><input id="customerMobile" style="display:none" placeholder="Customer mobile">
+<button onclick="submitService()">Proceed</button>
+<div id="result" class="result">Response yahan dikhega...</div>
+</div></div>
+<script>
+const BACKEND_URL="https://himalayangoproject-production.up.railway.app";
+function toggle(){
+ const s=document.getElementById("service").value;
+ document.getElementById("targetLabel").textContent=s==="recharge"?"Mobile Number":s==="utility"?"Consumer / Account Number":"Destination / Booking Details";
+ document.getElementById("target").placeholder=s==="recharge"?"10-digit mobile number":s==="utility"?"Consumer / account number":"Destination/details";
+ document.getElementById("providerLabel").textContent=s==="travel"?"Booking Type / Provider ID":"Provider ID";
+ const u=s==="utility";document.getElementById("mobileLabel").style.display=u?"block":"none";document.getElementById("customerMobile").style.display=u?"block":"none";
+}
+async function submitService(){
+ const s=service.value,t=target.value.trim(),a=amount.value,p=provider.value.trim(),cm=customerMobile.value.trim(),out=result;
+ if(!t||!a||!p){out.textContent="Please fill all required fields.";return}
+ out.textContent="Processing...";
+ let endpoint,payload;
+ if(s==="recharge"){endpoint="/api/recharge";payload={number:t,amount:a,provider_id:p}}
+ else if(s==="utility"){endpoint="/api/utility";payload={consumer_number:t,amount:a,provider_id:p,customer_mobile:cm}}
+ else{endpoint="/api/travel";payload={destination:t,amount:a,booking_type:p}}
+ try{const r=await fetch(BACKEND_URL+endpoint,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(payload)});const d=await r.json();out.textContent=JSON.stringify(d,null,2)}
+ catch(e){out.textContent="Backend se connection nahi ho paya. Railway deployment aur CORS check karein."}
+}
+</script>
+</body></html>
